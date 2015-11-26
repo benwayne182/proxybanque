@@ -2,50 +2,26 @@ package metier;
 
 import java.util.HashSet;
 
-public class Client {
+public class Client extends Personne{
 
 	//proprietes
-	protected String nom ;
-	protected String prenom ;
-	protected String adresse ;
+	protected String adresse;
 	protected int codePostal ;
 	protected String ville ;
-	protected int telephone ;
-	public HashSet<Compte> listeCompte;
-	
+	protected String telephone ;
+	public static HashSet<Compte> listeCompte = new HashSet<Compte>(2);
+
 	//constructeur
 	public Client(String nom, String prenom, String adresse, int codePostal,
-			String ville, int telephone) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
+			String ville, String telephone) {
+		super(nom, prenom);
 		this.adresse = adresse;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.telephone = telephone;
 	}
 
-	//get set
-	public String getNom() {
-		return nom;
-	}
-
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-
-	public String getPrenom() {
-		return prenom;
-	}
-
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-
+	//getters setters
 	public String getAdresse() {
 		return adresse;
 	}
@@ -76,22 +52,32 @@ public class Client {
 	}
 
 
-	public int getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
 
 
-	public void setTelephone(int telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	
-		public HashSet<Compte> getListeCompte() {
+
+	public HashSet<Compte> getListeCompte() {
 		return listeCompte;
 	}
 
 	public void setListeCompte(HashSet<Compte> listeCompte) {
-		this.listeCompte = listeCompte;
+		Client.listeCompte = listeCompte;
 	}
 
-			
+	@Override
+	public String toString() {
+		return "Client [nom=" + nom + ", prenom=" + prenom + ", adresse="
+				+ adresse + ", codePostal=" + codePostal + ", ville=" + ville
+				+ ", telephone=" + telephone + ", listeCompte=" + listeCompte
+				+ "]";
+	}
+
+
+	//toString
+
 }

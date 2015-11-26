@@ -3,7 +3,7 @@ package metier;
 
 public class CarteVisaElectron implements ICarte {
 
-	//propriete
+	//proprietes
 	protected int numeroCarte;
 
 	//constructeur
@@ -12,7 +12,7 @@ public class CarteVisaElectron implements ICarte {
 		this.numeroCarte = numeroCarte;
 	}
 
-	//get set
+	//getters setters
 	public int getNumeroCarte() {
 		return numeroCarte;
 	}
