@@ -4,11 +4,12 @@ public abstract class Compte {
 
 	//proprietes
 	protected int numCompte;
-	protected float solde;
+	protected double solde;
 	protected String dateOuverture;
+	protected String className = this.getClass().getSimpleName();
 	
 	//constructeur
-	public Compte(int numCompte, float solde, String dateOuverture) {
+	public Compte(int numCompte, double solde, String dateOuverture) {
 		super();
 		this.numCompte = numCompte;
 		this.solde = solde;
@@ -24,11 +25,11 @@ public abstract class Compte {
 		this.numCompte = numCompte;
 	}
 
-	public float getSolde() {
+	public double getSolde() {
 		return solde;
 	}
 
-	public void setSolde(float solde) {
+	public void setSolde(double solde) {
 		this.solde = solde;
 	}
 
@@ -39,6 +40,15 @@ public abstract class Compte {
 	public void setDateOuverture(String dateOuverture) {
 		this.dateOuverture = dateOuverture;
 	}
+
+	@Override
+	public String toString() {
+		return className +" [numCompte=" + numCompte + ", solde=" + solde
+				+ ", dateOuverture=" + dateOuverture + "]";
+	}
+	
+	//toString
+	
 	
 	
 }

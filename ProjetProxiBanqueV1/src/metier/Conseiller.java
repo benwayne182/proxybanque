@@ -5,15 +5,15 @@ import java.util.HashSet;
 public abstract class Conseiller extends Personne{
 
 	//proprietes
-	public static HashSet<Client> listeClient= new HashSet<Client>(10);
+	protected HashSet<Client> listeClient= new HashSet<Client>(1);
 
 	//getters setters
-	public static HashSet<Client> getListeClient() {
+	public HashSet<Client> getListeClient() {
 		return listeClient;
 	}
 
-	public static void setListeClient(HashSet<Client> listeClient) {
-		Conseiller.listeClient = listeClient;
+	public void setListeClient(HashSet<Client> listeClient) {
+		this.listeClient = listeClient;
 	}
 
 

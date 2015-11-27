@@ -9,7 +9,8 @@ public class Client extends Personne{
 	protected int codePostal ;
 	protected String ville ;
 	protected String telephone ;
-	public static HashSet<Compte> listeCompte = new HashSet<Compte>(2);
+	protected HashSet<Compte> listeCompte = new HashSet<Compte>(1);
+
 
 	//constructeur
 	public Client(String nom, String prenom, String adresse, int codePostal,
@@ -66,18 +67,17 @@ public class Client extends Personne{
 	}
 
 	public void setListeCompte(HashSet<Compte> listeCompte) {
-		Client.listeCompte = listeCompte;
+		this.listeCompte = listeCompte;
 	}
-
-	@Override
-	public String toString() {
-		return "Client [nom=" + nom + ", prenom=" + prenom + ", adresse="
-				+ adresse + ", codePostal=" + codePostal + ", ville=" + ville
-				+ ", telephone=" + telephone + ", listeCompte=" + listeCompte
-				+ "]";
-	}
-
 
 	//toString
+	@Override
+	public String toString() {
+		return "Client nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", codePostal=" + codePostal
+				+ ", ville=" + ville + ", telephone=" + telephone  + " \n"
+				+ "listeCompte=" + listeCompte + "\n";
+	}
+
+
 
 }
