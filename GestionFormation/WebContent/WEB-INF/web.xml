@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>GestionFormation</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ServletIdentification</display-name>
+    <servlet-name>ServletIdentification</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletIdentification</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletIdentification</servlet-name>
+    <url-pattern>/redirect</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>ServletCreaCons</display-name>
+    <servlet-name>ServletCreaCons</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletCreaCons</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCreaCons</servlet-name>
+    <url-pattern>/redirectCrea</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

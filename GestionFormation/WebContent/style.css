@@ -1,0 +1,88 @@
+body {
+	clear: both;
+	background: url('pics/back.jpg');
+	font-family: 'Trebuchet MS', Arial, sans-serif;
+	color: #000000;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+
+form {
+	margin: 0 auto;
+	width: 300px;
+}
+
+nav {
+	display: block;
+	float: right;
+	width: 70px;
+	text-align: center;
+}
+
+nav ul {
+	list-style-type: none;
+}
+
+nav a {
+	font-size: 1em;
+	color: #FFFFFF;
+	padding-bottom: 5px;
+	text-decoration: none;
+}
+
+.signature {
+	clear: both;
+	float: right;
+	font-style: italic;
+	color: #000000;
+}
+
+.alert_auth {
+	font-style: italic;
+	color: #FF0000;
+}
+
+#navlist {
+	position: relative;
+}
+
+#navlist li, #navlist a {
+	height: 44px;
+	display: block;
+}
+
+#navlist li {
+	display: inline-block;
+}
+
+#home {
+	left: 0px;
+	width: 46px;
+	background: url('pics/img_navsprites_hover.gif') 0 0;
+}
+
+#prev {
+	left: 63px;
+	width: 43px;
+	background: url('pics/img_navsprites_hover.gif') -47px 0;
+}
+
+#next {
+	left: 129px;
+	width: 43px;
+	background: url('pics/img_navsprites_hover.gif') -91px 0;
+}
+
+#home a:hover {
+	background: url('pics/img_navsprites_hover.gif') 0 -45px;
+}
+
+#prev a:hover {
+	background: url('pics/img_navsprites_hover.gif') -47px -45px;
+}
+
+#next a:hover {
+	background: url('pics/img_navsprites_hover.gif') -91px -45px;
+}
