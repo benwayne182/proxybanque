@@ -34,4 +34,24 @@
     <servlet-name>ServletCreaClient</servlet-name>
     <url-pattern>/redirectCreaClient</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletLireClient</display-name>
+    <servlet-name>ServletLireClient</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletLireClient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletLireClient</servlet-name>
+    <url-pattern>/redirectLireClient</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>ServletModifClient</display-name>
+    <servlet-name>ServletModifClient</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletModifClient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletModifClient</servlet-name>
+    <url-pattern>/redirectModifClient</url-pattern>
+  </servlet-mapping>
 </web-app>

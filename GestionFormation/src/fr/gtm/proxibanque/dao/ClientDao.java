@@ -158,7 +158,7 @@ public class ClientDao {
 	}
 
 
-	public ArrayList<ClientDao> lireClient(int idconseiller){
+	public ArrayList<ClientDao> lireClients(int idconseiller){
 
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -196,7 +196,6 @@ public class ClientDao {
 				client.setIdconseiller(rs.getInt("idconseiller"));
 
 				listeclient.add(client);
-				System.out.println(listeclient);
 
 			}
 			System.out.println("Liste client trouvée");
@@ -223,6 +222,108 @@ public class ClientDao {
 
 	}
 
+	public ClientDao lireClient(String idclient){
+
+		//informations acces bdd
+		String url="jdbc:oracle:thin:@localhost:1521:XE";
+		String login="ben";
+		String passwd="ben";
+		Connection cn =null;
+		Statement st=null;
+		ResultSet rs = null;
+		ClientDao client=new ClientDao();
+		try{
+			//Etape 1 : charger driver
+			Class.forName("oracle.jdbc.OracleDriver");
+			//Etape 2: Creer connexion
+			cn=DriverManager.getConnection(url, login, passwd);
+			//Etape 3: Creer requete
+			st=cn.createStatement();
+			String sql= "SELECT * FROM client where id='"+idclient+"'";
+			//Etape 4: Executer requete
+			rs=st.executeQuery(sql);
+
+			while(rs.next()){
+				client.setId(rs.getInt("id"));
+				client.setNom(rs.getString("nom"));
+				client.setPrenom(rs.getString("prenom"));
+				client.setAdresse(rs.getString("adresse"));
+				client.setCodePostal(rs.getString("codepostal"));
+				client.setVille(rs.getString("ville"));
+				client.setTelephone(rs.getString("telephone"));
+				client.setEmail(rs.getString("email"));
+				client.setIdconseiller(rs.getInt("idconseiller"));
+
+			}
+			System.out.println("Client trouvé");
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e2){
+			e2.printStackTrace();
+
+		} finally{
+			try {
+				//Etape 5: fermer connec
+				cn.close();
+				//st.close();
+
+			} catch (SQLException e3) {
+				e3.printStackTrace();
+
+			}
+
+		}
+		return client;
+
+	}
+	public void modifClient(String idclient, String nom,	String pre,	String adresse,	String codep, String ville, String mail, String idcons){
+
+		//informations acces bdd
+		String url="jdbc:oracle:thin:@localhost:1521:XE";
+		String login="ben";
+		String passwd="ben";
+		Connection cn =null;
+
+		try{
+			//Etape 1 : charger driver
+			Class.forName("oracle.jdbc.OracleDriver");
+			//Etape 2: Creer connexion
+			cn=DriverManager.getConnection(url, login, passwd);
+			//Etape 3: Creer requete
+			String sql = "UPDATE CLIENT SET NOM =?, PRENOM =?, ADRESSE =?, CODEPOSTAL =?, VILLE =?, EMAIL =?, idConseiller =? WHERE id="+idclient;
+			PreparedStatement stm = cn.prepareStatement(sql);
+
+			stm.setString(1, nom);
+			stm.setString(2, pre);
+			stm.setString(3, adresse);
+			stm.setString(4, codep);
+			stm.setString(5, ville);
+			stm.setString(6, mail);
+			stm.setString(7, idcons);
 
 
+			//Etape 4: Executer requete
+			stm.executeUpdate();
+			System.out.println("Client modifié");
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e2){
+			e2.printStackTrace();
+
+		} finally{
+			try {
+				//Etape 5: fermer connec
+				cn.close();
+				//st.close();
+
+			} catch (SQLException e3) {
+				e3.printStackTrace();
+
+			}
+
+		}
+
+	}
 }

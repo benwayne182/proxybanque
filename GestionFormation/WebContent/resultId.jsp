@@ -45,7 +45,15 @@
 	<ul>
 		<c:forEach var="item" items="${listeclient}">
 
-			<li>Client ${item.id} ${item.prenom} ${item.nom}</li>
+			<li><form action="redirectLireClient" method="post" accept-charset="UTF-8"
+		autocomplete="on">
+			Client ${item.id} ${item.prenom} ${item.nom}
+			<input type="hidden" name="idclient"
+					value=${item.id} readonly="readonly">
+			<br> <input type="submit" value="Modifier le client" class="btn btn-primary">
+			</form>
+			</li>
+			
 
 		</c:forEach>
 	</ul>

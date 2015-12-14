@@ -60,7 +60,7 @@ public class ServletIdentification extends HttpServlet {
 
 		if((login.equalsIgnoreCase(consdao.getIdentifiant()))&&(pwd.equalsIgnoreCase(consdao.getPwd()))){
 			ClientDao cl = new ClientDao();
-			ArrayList<ClientDao> listeclient = cl.lireClient(consdao.getIdConseiller());
+			ArrayList<ClientDao> listeclient = cl.lireClients(consdao.getIdConseiller());
 			maSession.setAttribute("listeclient", listeclient);
 			dispatcher=request.getRequestDispatcher("resultId.jsp");
 		}else{
