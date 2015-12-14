@@ -20,6 +20,13 @@
 		<![endif]-->
 <title>Création conseiller</title>
 </head>
-<body>Vous êtes à présent enregistré sur Proxibanque.
+<h1>
+	Bienvenue<br>
+	<small>sur le site du</small>
+</h1>
+<a href="index.html"><img src="pics/logo_CA.jpg" alt="index"
+	width=300px class="img-rounded"></a>
+<body>
+<p>Vous êtes à présent enregistré sur ProxibanqueSI.</p>
 </body>
 </html>

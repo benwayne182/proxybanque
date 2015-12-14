@@ -14,7 +14,7 @@
     <servlet-name>ServletIdentification</servlet-name>
     <url-pattern>/redirect</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>ServletCreaCons</display-name>
     <servlet-name>ServletCreaCons</servlet-name>
@@ -24,5 +24,14 @@
     <servlet-name>ServletCreaCons</servlet-name>
     <url-pattern>/redirectCrea</url-pattern>
   </servlet-mapping>
-  
+       <servlet>
+    <description></description>
+    <display-name>ServletCreaClient</display-name>
+    <servlet-name>ServletCreaClient</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletCreaClient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCreaClient</servlet-name>
+    <url-pattern>/redirectCreaClient</url-pattern>
+  </servlet-mapping> 
 </web-app>

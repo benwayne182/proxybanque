@@ -1,3 +1,4 @@
+<%@page import="fr.gtm.proxibanque.dao.ConseillerDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.Date"%>
@@ -17,27 +18,15 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-<title>Login Conseiller Proxibanque</title>
+<title>Création client</title>
 </head>
+<h1>
+	Bienvenue<br>
+	<small>sur le site du</small>
+</h1>
+<a href="index.html"><img src="pics/logo_CA.jpg" alt="index"
+	width=300px class="img-rounded"></a>
 <body>
-	<h1>
-		Bienvenue<br> <small>sur le site du</small>
-	</h1>
-	<a href="index.html"><img src="pics/logo_CA.jpg" alt="index"
-		width=300px class="img-rounded"></a>
-
-
-
-
-	<ul>
-		<li>Création client<br> <a
-			href="creation_client.html" class="btn btn-info" role="button">Créer	un client</a></li>
-		<li>Consultation client <br> <a href="" class="btn btn-info" role="button">Consulter votre liste de clients</a></li>
-	</ul>
-	<p>
-		Envoyez-nous un <a href="mailto:ben.sinivassin@gmail.com"
-			class="btn btn-link">mail</a>.
-	</p>
-	<p class="signature">Par Benoît le 10/12/2015</p>
+<p>Vous avez à présent créé un client sur ProxibanqueSI.</p>
 </body>
 </html>
