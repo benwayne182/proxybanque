@@ -21,12 +21,19 @@
 <title>Création client</title>
 </head>
 <h1>
-	Bienvenue<br>
-	<small>sur le site du</small>
+	Bienvenue<br> <small>sur le site du</small>
 </h1>
 <a href="index.html"><img src="pics/logo_CA.jpg" alt="index"
 	width=300px class="img-rounded"></a>
 <body>
-<p>Vous avez à présent créé un client sur ProxibanqueSI.</p>
+	<p>Vous avez à présent créé un client sur ProxibanqueSI.</p>
+
+
+
+
+
+	<ul>
+		<li><a href="index.html" class="btn btn-info" role="button">Accueil</a></li>
+	</ul>
 </body>
 </html>

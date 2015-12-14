@@ -1,7 +1,14 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="fr.gtm.proxibanque.dao.ClientDao"%>
+<%@page import="fr.gtm.proxibanque.dao.ConseillerDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.Date"%>
-<%@ page import="fr.gtm.proxibanque.service.UserService"%>
+<%@ page import="fr.gtm.proxibanque.dao.ConseillerDao"%>
+<%@ page import="fr.gtm.proxibanque.dao.ClientDao"%>
+<%@ page import="java.util.HashSet"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,16 +35,30 @@
 
 
 
+	<%
+		ConseillerDao l = (ConseillerDao) session.getAttribute("consdao");
+		ArrayList<ClientDao> listeclient = (ArrayList<ClientDao>) session.getAttribute("listeclient");
+		System.out.println("---------");
+		System.out.println(listeclient);
+	%>
+	<h2>Liste de vos clients</h2>
+	<ul>
+		<c:forEach var="item" items="${listeclient}">
+
+			<li>Client ${item.id} ${item.prenom} ${item.nom}</li>
+
+		</c:forEach>
+	</ul>
+
+	<br>
 
 	<ul>
-		<li>Création client<br> <a
-			href="creation_client.html" class="btn btn-info" role="button">Créer	un client</a></li>
-		<li>Consultation client <br> <a href="" class="btn btn-info" role="button">Consulter votre liste de clients</a></li>
+		<li><a href="creation_client.jsp" class="btn btn-info"
+			role="button">Créer un client</a></li>
 	</ul>
 	<p>
 		Envoyez-nous un <a href="mailto:ben.sinivassin@gmail.com"
 			class="btn btn-link">mail</a>.
 	</p>
-	<p class="signature">Par Benoît le 10/12/2015</p>
 </body>
 </html>

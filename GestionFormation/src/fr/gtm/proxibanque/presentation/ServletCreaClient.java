@@ -52,12 +52,13 @@ public class ServletCreaClient extends HttpServlet {
 		String ville=request.getParameter("ville");
 		String telephone=request.getParameter("telephone");
 		String email=request.getParameter("email");
+		String idcons=request.getParameter("idconseiller");
 
 		
 
 		//Soumettre les parametres de la requete a la couche service
 		ClientDao cdao = new ClientDao();
-		cdao.creerClient(nom, prenom, adresse, codepostal, ville, telephone, email);
+		cdao.creerClient(nom, prenom, adresse, codepostal, ville, telephone, email, idcons);
 		HttpSession maSession = request.getSession();
 		maSession.setAttribute("cdao", cdao);
 		

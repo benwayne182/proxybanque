@@ -1,7 +1,7 @@
 package fr.gtm.proxibanque.presentation;
 
 import java.io.IOException;
-
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.gtm.proxibanque.dao.ClientDao;
 import fr.gtm.proxibanque.dao.ConseillerDao;
 import fr.gtm.proxibanque.service.UserService;
 
@@ -28,7 +29,6 @@ public class ServletIdentification extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -50,14 +50,18 @@ public class ServletIdentification extends HttpServlet {
 		//Soumettre les parametres de la requete a la couche service
 		UserService log = new UserService(login,pwd);
 		HttpSession maSession = request.getSession();
-		maSession.setAttribute("log", log);
+
 
 		//Reponse a l'utilisateur
 		ConseillerDao consdao = new ConseillerDao();
 		consdao=consdao.lireConseiller(log.getId(), log.getPassword());
+		maSession.setAttribute("consdao", consdao);
 		RequestDispatcher dispatcher;
 
 		if((login.equalsIgnoreCase(consdao.getIdentifiant()))&&(pwd.equalsIgnoreCase(consdao.getPwd()))){
+			ClientDao cl = new ClientDao();
+			ArrayList<ClientDao> listeclient = cl.lireClient(consdao.getIdConseiller());
+			maSession.setAttribute("listeclient", listeclient);
 			dispatcher=request.getRequestDispatcher("resultId.jsp");
 		}else{
 			dispatcher=request.getRequestDispatcher("login_red.html");
@@ -65,7 +69,6 @@ public class ServletIdentification extends HttpServlet {
 
 		dispatcher.forward(request, response);
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

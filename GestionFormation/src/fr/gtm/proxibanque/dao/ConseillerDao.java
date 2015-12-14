@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ConseillerDao {
+	protected int idConseiller;
 	protected String nom;
 	protected String prenom;
 	protected String identifiant;
@@ -19,6 +20,15 @@ public class ConseillerDao {
 	}
 
 	//setters getters
+	public int getIdConseiller() {
+		return idConseiller;
+	}
+
+	public void setIdConseiller(int idConseiller) {
+		this.idConseiller = idConseiller;
+	}
+
+
 	public String getNom() {
 		return nom;
 	}
@@ -118,6 +128,7 @@ public class ConseillerDao {
 			rs=st.executeQuery(sql);
 			//Etape 5: recuperer le resultat
 			while(rs.next()){
+				consdao.idConseiller=rs.getInt("id");
 				consdao.nom=rs.getString("nom");
 				consdao.prenom=rs.getString("prenom");
 				consdao.identifiant=rs.getString("login");

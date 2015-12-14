@@ -24,7 +24,7 @@
     <servlet-name>ServletCreaCons</servlet-name>
     <url-pattern>/redirectCrea</url-pattern>
   </servlet-mapping>
-       <servlet>
+  <servlet>
     <description></description>
     <display-name>ServletCreaClient</display-name>
     <servlet-name>ServletCreaClient</servlet-name>
@@ -33,5 +33,5 @@
   <servlet-mapping>
     <servlet-name>ServletCreaClient</servlet-name>
     <url-pattern>/redirectCreaClient</url-pattern>
-  </servlet-mapping> 
+  </servlet-mapping>
 </web-app>

@@ -102,7 +102,6 @@ public class Main {
 		
 		System.out.println("---------Suppression client--------------");
 		conseiller2.supprimerClient(client5);
-
 	}
 
 }

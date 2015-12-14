@@ -4,10 +4,13 @@ package fr.gtm.proxibanque.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class ClientDao {
+	protected int id;
 	protected String nom;
 	protected String prenom;
 	protected String adresse;
@@ -15,13 +18,15 @@ public class ClientDao {
 	protected String ville ;
 	protected String telephone ;
 	protected String email;
+	protected int idconseiller;
 
 	//constructeur
 	public ClientDao() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	//setters getters
+
 	public String getNom() {
 		return nom;
 	}
@@ -78,7 +83,23 @@ public class ClientDao {
 		this.email = email;
 	}
 
-	public void creerClient(String nom,	String pre,	String adresse,	String codep, String ville, String tel, String mail){
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getIdconseiller() {
+		return idconseiller;
+	}
+
+	public void setIdconseiller(int idconseiller) {
+		this.idconseiller = idconseiller;
+	}
+
+	public void creerClient(String nom,	String pre,	String adresse,	String codep, String ville, String tel, String mail, String idcons){
 
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -92,9 +113,9 @@ public class ClientDao {
 			//Etape 2: Creer connexion
 			cn=DriverManager.getConnection(url, login, passwd);
 			//Etape 3: Creer requete
-			String sql = "INSERT INTO client (ID, NOM, PRENOM, ADRESSE, CODEPOSTAL, VILLE, TELEPHONE, EMAIL) VALUES (BEN.seqClient.nextval,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO client (ID, NOM, PRENOM, ADRESSE, CODEPOSTAL, VILLE, TELEPHONE, EMAIL, idConseiller) VALUES (BEN.seqClient.nextval,?,?,?,?,?,?,?,?)";
 			PreparedStatement stm = cn.prepareStatement(sql);
-			
+
 			stm.setString(1, nom);
 			stm.setString(2, pre);
 			stm.setString(3, adresse);
@@ -102,7 +123,9 @@ public class ClientDao {
 			stm.setString(5, ville);
 			stm.setString(6, tel);
 			stm.setString(7, mail);
-			
+			stm.setString(8, idcons);
+
+
 			//Etape 4: Executer requete
 			stm.executeUpdate();
 			System.out.println("Client ajouté");
@@ -127,9 +150,15 @@ public class ClientDao {
 
 	}
 
+	@Override
+	public String toString() {
+		return "ClientDao [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", codePostal="
+				+ codePostal + ", ville=" + ville + ", telephone=" + telephone + ", email=" + email + ", idconseiller="
+				+ idconseiller + "]";
+	}
 
 
-/*	public ClientDao lireConseiller(String id, String pwd){
+	public ArrayList<ClientDao> lireClient(int idconseiller){
 
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -139,7 +168,8 @@ public class ClientDao {
 		Statement st=null;
 		ResultSet rs = null;
 
-		ClientDao consdao= new ClientDao();
+		//ClientDao clientdao= new ClientDao();
+		ArrayList<ClientDao> listeclient= new ArrayList<ClientDao>();
 		try{
 			//Etape 1 : charger driver
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -147,18 +177,30 @@ public class ClientDao {
 			cn=DriverManager.getConnection(url, login, passwd);
 			//Etape 3: Creer requete
 			st=cn.createStatement();
-			String sql= "SELECT * FROM client where login='"+id +"' and password='"+pwd+"'";
+			String sql= "SELECT * FROM client where idconseiller='"+idconseiller+"'";
 			//Etape 4: Executer requete
 			rs=st.executeQuery(sql);
 			//Etape 5: recuperer le resultat
+
+
 			while(rs.next()){
-				consdao.nom=rs.getString("nom");
-				consdao.prenom=rs.getString("prenom");
-				consdao.identifiant=rs.getString("login");
-				consdao.pwd=rs.getString("password");
+				ClientDao client=new ClientDao();
+				client.setId(rs.getInt("id"));
+				client.setNom(rs.getString("nom"));
+				client.setPrenom(rs.getString("prenom"));
+				client.setAdresse(rs.getString("adresse"));
+				client.setCodePostal(rs.getString("codepostal"));
+				client.setVille(rs.getString("ville"));
+				client.setTelephone(rs.getString("telephone"));
+				client.setEmail(rs.getString("email"));
+				client.setIdconseiller(rs.getInt("idconseiller"));
+
+				listeclient.add(client);
+				System.out.println(listeclient);
 
 			}
-			System.out.println("Conseiller trouvé");
+			System.out.println("Liste client trouvée");
+
 
 		} catch (SQLException e){
 			e.printStackTrace();
@@ -177,8 +219,10 @@ public class ClientDao {
 			}
 
 		}
-		return consdao;
+		return listeclient;
 
-	}*/
+	}
+
+
 
 }

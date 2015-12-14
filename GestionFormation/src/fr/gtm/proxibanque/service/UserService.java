@@ -5,7 +5,6 @@ public class UserService {
 	//parametres
 	protected String id;
 	protected String password;
-	protected String nom;
 	
 	//getters setters
 	public String getId() {

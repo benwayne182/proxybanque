@@ -21,12 +21,16 @@
 <title>Création conseiller</title>
 </head>
 <h1>
-	Bienvenue<br>
-	<small>sur le site du</small>
+	Bienvenue<br> <small>sur le site du</small>
 </h1>
 <a href="index.html"><img src="pics/logo_CA.jpg" alt="index"
 	width=300px class="img-rounded"></a>
 <body>
-<p>Vous êtes à présent enregistré sur ProxibanqueSI.</p>
+	<p>Vous êtes à présent enregistré sur ProxibanqueSI.</p>
+	<ul>
+		<li><a href="index.html" class="btn btn-info" role="button">Accueil</a></li>
+		<li>Identification Conseiller <br> <a href="login.html"
+			class="btn btn-info" role="button">Connectez-vous</a></li>
+	</ul>
 </body>
 </html>
