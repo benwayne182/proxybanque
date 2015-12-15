@@ -6,8 +6,6 @@ import java.util.Iterator;
 import fr.gtm.proxibanque.metier.Agence;
 import fr.gtm.proxibanque.metier.Client;
 import fr.gtm.proxibanque.metier.Compte;
-import fr.gtm.proxibanque.metier.CompteEntreprise;
-import fr.gtm.proxibanque.metier.CompteParticulier;
 import fr.gtm.proxibanque.metier.Conseiller;
 import fr.gtm.proxibanque.metier.Gerant;
 
@@ -45,7 +43,7 @@ public class ServiceGerant extends Gerant {
 		int nbCompteDebiteursE=0;
 		Gerant gerant= agence.getGerant();
 		HashSet<Conseiller> listeConseiller = gerant.getListeConseiller();
-		for (Iterator<Conseiller> it = listeConseiller.iterator(); it.hasNext(); ) {
+		for (Iterator<Conseller> it = listeConseiller.iterator(); it.hasNext(); ) {
 			Conseiller conseiller = it.next();
 			HashSet<Client> listeClient=conseiller.getListeClient();
 

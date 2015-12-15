@@ -53,7 +53,7 @@ public class ServletIdentification extends HttpServlet {
 
 
 		//Reponse a l'utilisateur
-		ConseillerDao consdao = new ConseillerDao();
+		ConseillerDao consdao = new ConseillerDao(null,null);
 		consdao=consdao.lireConseiller(log.getId(), log.getPassword());
 		maSession.setAttribute("consdao", consdao);
 		RequestDispatcher dispatcher;

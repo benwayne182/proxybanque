@@ -7,58 +7,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ConseillerDao {
-	protected int idConseiller;
-	protected String nom;
-	protected String prenom;
-	protected String identifiant;
-	protected String pwd;
+import fr.gtm.proxibanque.metier.Conseiller;
+
+public class ConseillerDao extends Conseiller{
 
 	//constructeur
-	public ConseillerDao() {
+	public ConseillerDao(String nom, String prenom, String login, String password) {
+		super(nom, prenom, login, password);
 		// TODO Auto-generated constructor stub
 	}
 
-	//setters getters
-	public int getIdConseiller() {
-		return idConseiller;
-	}
-
-	public void setIdConseiller(int idConseiller) {
-		this.idConseiller = idConseiller;
-	}
-
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public String getPrenom() {
-		return prenom;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-	public String getIdentifiant() {
-		return identifiant;
-	}
-
-	public void setIdentifiant(String identifiant) {
-		this.identifiant = identifiant;
-	}
-
-	public String getPwd() {
-		return pwd;
-	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public ConseillerDao(String nom, String prenom) {
+		super(nom, prenom);
+		// TODO Auto-generated constructor stub
 	}
 
 	public void creerConseiller(String nom,	String prenom,	String identifiant,	String pwd){
@@ -115,7 +76,7 @@ public class ConseillerDao {
 		Statement st=null;
 		ResultSet rs = null;
 
-		ConseillerDao consdao= new ConseillerDao();
+		ConseillerDao consdao= new ConseillerDao(null,null);
 		try{
 			//Etape 1 : charger driver
 			Class.forName("oracle.jdbc.OracleDriver");

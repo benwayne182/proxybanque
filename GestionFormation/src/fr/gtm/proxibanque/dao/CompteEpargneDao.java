@@ -7,24 +7,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import fr.gtm.proxibanque.metier.Compte;
+import fr.gtm.proxibanque.metier.CompteEpargne;
 
-public class CompteEpargneDao extends Compte {
+public class CompteEpargneDao extends CompteEpargne {
 	
-	protected String tauxrem;
-
-	public CompteEpargneDao(String solde, String dateOuverture, String tauxrem) {
-		super(solde, dateOuverture);
-		this.tauxrem=tauxrem;
+	public CompteEpargneDao(String solde, String dateOuverture, String tauxRemuneration) {
+		super(solde, dateOuverture, tauxRemuneration);
 		// TODO Auto-generated constructor stub
 	}
+
 	//setters & getters
 	public String getTauxrem() {
-		return tauxrem;
+		return tauxRemuneration;
 	}
 
 	public void setTauxrem(String tauxrem) {
-		this.tauxrem = tauxrem;
+		this.tauxRemuneration = tauxrem;
 	}
 	public void creerCompte(String idclient){
 
@@ -46,7 +44,7 @@ public class CompteEpargneDao extends Compte {
 			stm.setString(1, dateOuverture);
 			stm.setString(2, solde);
 			stm.setString(3, idclient);
-			stm.setString(4, tauxrem);
+			stm.setString(4, tauxRemuneration);
 
 
 			//Etape 4: Executer requete
@@ -82,7 +80,7 @@ public class CompteEpargneDao extends Compte {
 		Connection cn =null;
 		Statement st=null;
 		ResultSet rs = null;
-		CompteEpargneDao c=new CompteEpargneDao(solde, dateOuverture, tauxrem);
+		CompteEpargneDao c=new CompteEpargneDao(solde, dateOuverture, tauxRemuneration);
 		try{
 			//Etape 1 : charger driver
 			Class.forName("oracle.jdbc.OracleDriver");
