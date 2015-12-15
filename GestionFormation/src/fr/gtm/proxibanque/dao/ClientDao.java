@@ -9,96 +9,29 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class ClientDao {
-	protected int id;
-	protected String nom;
-	protected String prenom;
-	protected String adresse;
-	protected String codePostal ;
-	protected String ville ;
-	protected String telephone ;
-	protected String email;
-	protected int idconseiller;
+import fr.gtm.proxibanque.metier.Client;
+/**
+ * 
+ * @author BS, ML
+ *
+ */
+public class ClientDao extends Client{
+ //constructeur
 
-	//constructeur
-	public ClientDao() {
-
+	public ClientDao(String nom, String prenom, String adresse, String codePostal, String ville, String telephone) {
+		super(nom, prenom, adresse, codePostal, ville, telephone);
 	}
 
-	//setters getters
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public String getPrenom() {
-		return prenom;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-	public String getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-
-	public String getCodePostal() {
-		return codePostal;
-	}
-
-	public void setCodePostal(String codePostal) {
-		this.codePostal = codePostal;
-	}
-
-	public String getVille() {
-		return ville;
-	}
-
-	public void setVille(String ville) {
-		this.ville = ville;
-	}
-
-	public String getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getIdconseiller() {
-		return idconseiller;
-	}
-
-	public void setIdconseiller(int idconseiller) {
-		this.idconseiller = idconseiller;
-	}
-
+	/**
+	 * @param nom
+	 * @param pre
+	 * @param adresse
+	 * @param codep
+	 * @param ville
+	 * @param tel
+	 * @param mail
+	 * @param idcons
+	 */
 	public void creerClient(String nom,	String pre,	String adresse,	String codep, String ville, String tel, String mail, String idcons){
 
 		//informations acces bdd
@@ -150,14 +83,11 @@ public class ClientDao {
 
 	}
 
-	@Override
-	public String toString() {
-		return "ClientDao [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", codePostal="
-				+ codePostal + ", ville=" + ville + ", telephone=" + telephone + ", email=" + email + ", idconseiller="
-				+ idconseiller + "]";
-	}
 
-
+	/**
+	 * @param idconseiller
+	 * @return
+	 */
 	public ArrayList<ClientDao> lireClients(int idconseiller){
 
 		//informations acces bdd
@@ -168,7 +98,6 @@ public class ClientDao {
 		Statement st=null;
 		ResultSet rs = null;
 
-		//ClientDao clientdao= new ClientDao();
 		ArrayList<ClientDao> listeclient= new ArrayList<ClientDao>();
 		try{
 			//Etape 1 : charger driver
@@ -184,8 +113,8 @@ public class ClientDao {
 
 
 			while(rs.next()){
-				ClientDao client=new ClientDao();
-				client.setId(rs.getInt("id"));
+				ClientDao client=new ClientDao(nom, prenom, adresse, codePostal, ville, telephone);
+				client.setId(rs.getString("id"));
 				client.setNom(rs.getString("nom"));
 				client.setPrenom(rs.getString("prenom"));
 				client.setAdresse(rs.getString("adresse"));
@@ -222,6 +151,10 @@ public class ClientDao {
 
 	}
 
+	/**
+	 * @param idclient
+	 * @return
+	 */
 	public ClientDao lireClient(String idclient){
 
 		//informations acces bdd
@@ -231,7 +164,7 @@ public class ClientDao {
 		Connection cn =null;
 		Statement st=null;
 		ResultSet rs = null;
-		ClientDao client=new ClientDao();
+		ClientDao client=new ClientDao(nom, prenom, adresse, codePostal, ville, telephone);
 		try{
 			//Etape 1 : charger driver
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -244,7 +177,7 @@ public class ClientDao {
 			rs=st.executeQuery(sql);
 
 			while(rs.next()){
-				client.setId(rs.getInt("id"));
+				client.setId(rs.getString("id"));
 				client.setNom(rs.getString("nom"));
 				client.setPrenom(rs.getString("prenom"));
 				client.setAdresse(rs.getString("adresse"));
@@ -276,7 +209,17 @@ public class ClientDao {
 		return client;
 
 	}
-	public void modifClient(String idclient, String nom,	String pre,	String adresse,	String codep, String ville, String mail, String idcons){
+	/**
+	 * @param idclient
+	 * @param nom
+	 * @param pre
+	 * @param adresse
+	 * @param codep
+	 * @param ville
+	 * @param mail
+	 * @param idcons
+	 */
+	public void modifClient(String idclient, String nom, String pre,	String adresse,	String codep, String ville, String mail, String idcons){
 
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -325,6 +268,9 @@ public class ClientDao {
 
 	}
 
+	/**
+	 * @param idclient
+	 */
 	public void supprClient(String idclient){
 
 		//informations acces bdd

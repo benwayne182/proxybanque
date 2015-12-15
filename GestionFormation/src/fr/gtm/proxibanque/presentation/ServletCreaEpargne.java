@@ -50,12 +50,12 @@ public class ServletCreaEpargne extends HttpServlet {
 
 
 		//Soumettre les parametres de la requete a la couche service
-		ClientDao cdao = new ClientDao().lireClient(idclient);
+		ClientDao cdao = new ClientDao(null, null, null, null, null, null).lireClient(idclient);
 		HttpSession maSession = request.getSession();
 		maSession.setAttribute("cdao", cdao);
 
 		//Reponse a l'utilisateur
-		RequestDispatcher dispatcher=request.getRequestDispatcher("resultCompteEpargne.jsp");;
+		RequestDispatcher dispatcher=request.getRequestDispatcher("resultCompteEpargne.jsp");
 
 		dispatcher.forward(request, response);
 	}

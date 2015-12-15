@@ -57,7 +57,7 @@ public class ServletModifClient extends HttpServlet {
 		
 
 		//Soumettre les parametres de la requete a la couche service
-		ClientDao cdao = new ClientDao();
+		ClientDao cdao = new ClientDao(null, null, null, null, null, null);
 		cdao.modifClient(idclient, nom, prenom, adresse, codepostal, ville, email, idcons);
 		HttpSession maSession = request.getSession();
 		maSession.setAttribute("cdao", cdao);

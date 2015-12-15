@@ -65,12 +65,14 @@
 				</form>
 				<form action="redirectCompteEpargne" method="post"
 					class="form-list-client">
-					<input type="hidden" name="idclient" value=${item.id}> <input
+					<input type="hidden" name="idclient" value=${item.id
+					}> <input
 						type="submit" value="Nouveau Compte Epargne" class="btn btn-info">
 				</form>
 				<form action="redirectCompteCourant" method="post"
 					class="form-list-client">
-					<input type="hidden" name="idclient" value=${item.id}> <input
+					<input type="hidden" name="idclient" value=${item.id
+					}> <input
 						type="submit" value="Nouveau Compte Courant" class="btn btn-info">
 				</form>
 				<form action="redirectListeCompte" method="post"

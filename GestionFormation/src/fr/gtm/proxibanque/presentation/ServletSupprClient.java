@@ -50,7 +50,7 @@ public class ServletSupprClient extends HttpServlet {
 		
 
 		//Soumettre les parametres de la requete a la couche service
-		ClientDao cdao = new ClientDao();
+		ClientDao cdao = new ClientDao(null, null, null, null, null, null);
 		cdao.supprClient(idclient);
 		HttpSession maSession = request.getSession();
 		maSession.setAttribute("cdao", cdao);

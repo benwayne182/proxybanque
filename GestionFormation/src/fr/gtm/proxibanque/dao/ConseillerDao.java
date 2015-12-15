@@ -8,22 +8,32 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import fr.gtm.proxibanque.metier.Conseiller;
-
+/**
+ * Classe permettant la communication avec la table "Conseiller" de la base de données.
+ * Permet de créer un nouveau conseiller et d'extraire les informations de la table.
+ * 
+ * 
+ * 
+ * @author BS, ML
+ * @version 2.0
+ *
+ */
 public class ConseillerDao extends Conseiller{
 
 	//constructeur
 	public ConseillerDao(String nom, String prenom, String login, String password) {
 		super(nom, prenom, login, password);
-		// TODO Auto-generated constructor stub
-	}
 
-	public ConseillerDao(String nom, String prenom) {
-		super(nom, prenom);
-		// TODO Auto-generated constructor stub
 	}
-
+/**
+ * Méthode de création d'un nouveau conseiller. Les arguments de la méthode sont récupéreés des paramètres issus de la saisie du formulaire de création conseiller. 
+ * 
+ * @param nom
+ * @param prenom
+ * @param identifiant
+ * @param pwd
+ */
 	public void creerConseiller(String nom,	String prenom,	String identifiant,	String pwd){
-
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
 		String login="ben";
@@ -65,7 +75,13 @@ public class ConseillerDao extends Conseiller{
 	}
 
 
-
+/**
+ * Méthode permettant d'extraire les informations d'un conseiller suite à la saisie de son login et de son mot de passe.
+ * 
+ * @param id
+ * @param pwd
+ * @return
+ */
 	public ConseillerDao lireConseiller(String id, String pwd){
 
 		//informations acces bdd
@@ -76,7 +92,7 @@ public class ConseillerDao extends Conseiller{
 		Statement st=null;
 		ResultSet rs = null;
 
-		ConseillerDao consdao= new ConseillerDao(null,null);
+		ConseillerDao consdao= new ConseillerDao(null,null,null,null);
 		try{
 			//Etape 1 : charger driver
 			Class.forName("oracle.jdbc.OracleDriver");

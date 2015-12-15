@@ -1,19 +1,19 @@
 package fr.gtm.proxibanque.metier;
 
-import java.util.HashSet;
-
-public class Client extends Personne{
+public abstract class Client extends Personne{
 
 	//proprietes
+	protected String id;
 	protected String adresse;
-	protected int codePostal ;
+	protected String codePostal ;
 	protected String ville ;
 	protected String telephone ;
-	protected HashSet<Compte> listeCompte = new HashSet<Compte>(1);
+	protected String email;
+	protected int idconseiller;
 
 
 	//constructeur
-	public Client(String nom, String prenom, String adresse, int codePostal,
+	public Client(String nom, String prenom, String adresse, String codePostal,
 			String ville, String telephone) {
 		super(nom, prenom);
 		this.adresse = adresse;
@@ -33,12 +33,12 @@ public class Client extends Personne{
 	}
 
 
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 
@@ -62,12 +62,28 @@ public class Client extends Personne{
 		this.telephone = telephone;
 	}
 
-	public HashSet<Compte> getListeCompte() {
-		return listeCompte;
+	public String getId() {
+		return id;
 	}
 
-	public void setListeCompte(HashSet<Compte> listeCompte) {
-		this.listeCompte = listeCompte;
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getIdconseiller() {
+		return idconseiller;
+	}
+
+	public void setIdconseiller(int idconseiller) {
+		this.idconseiller = idconseiller;
 	}
 
 	//toString
@@ -75,7 +91,7 @@ public class Client extends Personne{
 	public String toString() {
 		return "Client nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", codePostal=" + codePostal
 				+ ", ville=" + ville + ", telephone=" + telephone  + " \n"
-				+ "listeCompte=" + listeCompte + "\n";
+				+ "\n";
 	}
 
 

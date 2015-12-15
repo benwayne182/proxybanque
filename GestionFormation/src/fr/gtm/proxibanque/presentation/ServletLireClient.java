@@ -50,13 +50,13 @@ public class ServletLireClient extends HttpServlet {
 
 
 		//Soumettre les parametres de la requete a la couche service
-		ClientDao cdao = new ClientDao();
+		ClientDao cdao = new ClientDao(null, null, null, null, null, null);
 		ClientDao client_modif = cdao.lireClient(idclient);
 		HttpSession maSession = request.getSession();
 		maSession.setAttribute("client_modif", client_modif);
 
 		//Reponse a l'utilisateur
-		RequestDispatcher dispatcher=request.getRequestDispatcher("resultModifClient.jsp");;
+		RequestDispatcher dispatcher=request.getRequestDispatcher("resultModifClient.jsp");
 
 		dispatcher.forward(request, response);
 	}

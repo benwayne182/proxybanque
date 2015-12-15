@@ -1,4 +1,4 @@
-<%@page import="fr.gtm.proxibanque.dao.ConseillerDao"%>
+<%@page import="fr.gtm.proxibanque.metier.Conseiller"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.Date"%>
@@ -27,7 +27,7 @@
 	id="pic_title"></a>
 <body>
 	<%
-		ConseillerDao l = (ConseillerDao) session.getAttribute("consdao");
+		Conseiller l = (Conseiller) session.getAttribute("consdao");
 	%>
 	<p>Le client a été supprimé.</p>
 	<ul>

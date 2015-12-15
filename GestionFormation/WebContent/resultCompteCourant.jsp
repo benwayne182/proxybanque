@@ -1,4 +1,4 @@
-<%@page import="fr.gtm.proxibanque.dao.ClientDao"%>
+<%@page import="fr.gtm.proxibanque.metier.Client"%>
 <%@page import="fr.gtm.proxibanque.dao.ConseillerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -31,7 +31,7 @@
 
 
 	<%
-		ClientDao cl = (ClientDao) session.getAttribute("cdao");
+		Client cl = (Client) session.getAttribute("cdao");
 	%>
 
 	<h3><%=cl.getNom() %>

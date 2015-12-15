@@ -50,7 +50,7 @@ public class ServletCreaCons extends HttpServlet {
 		
 
 		//Soumettre les parametres de la requete a la couche service
-		ConseillerDao cdao = new ConseillerDao(null,null);
+		ConseillerDao cdao = new ConseillerDao(null,null,null,null);
 		cdao.creerConseiller(nom, prenom, login, pwd);
 		HttpSession maSession = request.getSession();
 		maSession.setAttribute("cdao", cdao);

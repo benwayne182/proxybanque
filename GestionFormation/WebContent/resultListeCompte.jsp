@@ -1,6 +1,6 @@
 <%@page import="fr.gtm.proxibanque.dao.ConseillerDao"%>
-<%@page import="fr.gtm.proxibanque.dao.CompteCourantDao"%>
-<%@page import="fr.gtm.proxibanque.dao.CompteEpargneDao"%>
+<%@page import="fr.gtm.proxibanque.metier.CompteCourant"%>
+<%@page import="fr.gtm.proxibanque.metier.CompteEpargne"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.Date"%>
@@ -32,8 +32,8 @@
 
 	<%
 		ConseillerDao l = (ConseillerDao) session.getAttribute("consdao");
-		CompteEpargneDao ce = (CompteEpargneDao) session.getAttribute("cedao");
-		CompteCourantDao cc = (CompteCourantDao) session.getAttribute("ccdao");
+		CompteEpargne ce = (CompteEpargne) session.getAttribute("cedao");
+		CompteCourant cc = (CompteCourant) session.getAttribute("ccdao");
 	%>
 	<h2>Liste des comptes du client</h2>
 	<div class="table-div">

@@ -53,13 +53,13 @@ public class ServletIdentification extends HttpServlet {
 
 
 		//Reponse a l'utilisateur
-		ConseillerDao consdao = new ConseillerDao(null,null);
+		ConseillerDao consdao = new ConseillerDao(null,null,null,null);
 		consdao=consdao.lireConseiller(log.getId(), log.getPassword());
 		maSession.setAttribute("consdao", consdao);
 		RequestDispatcher dispatcher;
 
 		if((login.equalsIgnoreCase(consdao.getIdentifiant()))&&(pwd.equalsIgnoreCase(consdao.getPwd()))){
-			ClientDao cl = new ClientDao();
+			ClientDao cl = new ClientDao(null, null, null, null, null, null);
 			ArrayList<ClientDao> listeclient = cl.lireClients(consdao.getIdConseiller());
 			maSession.setAttribute("listeclient", listeclient);
 			dispatcher=request.getRequestDispatcher("resultId.jsp");

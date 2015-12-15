@@ -1,23 +1,13 @@
 package fr.gtm.proxibanque.metier;
 
-import java.util.HashSet;
-
 public abstract class Conseiller extends Personne{
-	
+	//proprietes
 	protected int idConseiller;
 	protected String identifiant;
 	protected String pwd;
-	//proprietes
-	protected HashSet<Client> listeClient= new HashSet<Client>(1);
+	
 
 	//getters setters
-	public HashSet<Client> getListeClient() {
-		return listeClient;
-	}
-
-	public void setListeClient(HashSet<Client> listeClient) {
-		this.listeClient = listeClient;
-	}
 
 	public String getIdentifiant() {
 		return identifiant;
@@ -49,10 +39,6 @@ public abstract class Conseiller extends Personne{
 		super(nom, prenom);
 		this.identifiant=login;
 		this.pwd=password;
-	}
-	
-	public Conseiller(String nom, String prenom) {
-		super(nom, prenom);
 	}
 
 
