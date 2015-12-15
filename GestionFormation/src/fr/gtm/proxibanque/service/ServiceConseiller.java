@@ -16,7 +16,6 @@ public class ServiceConseiller extends Conseiller {
 	//constructeur
 	public ServiceConseiller(String nom, String prenom) {
 		super(nom, prenom);
-		// TODO Auto-generated constructor stub
 	}
 
 	//methodes
@@ -54,7 +53,7 @@ public class ServiceConseiller extends Conseiller {
 	 * @param client Client
 	 * 
 	 */
-	public void gestionPatrimoine(Client client){
+	/*public void gestionPatrimoine(Client client){
 		double patrimoine = 0;
 		HashSet<Compte> listeCompte=client.getListeCompte();
 		for (Iterator<Compte> it = listeCompte.iterator(); it.hasNext(); ) {
@@ -68,7 +67,7 @@ public class ServiceConseiller extends Conseiller {
 			System.out.println("Gestion de patrimoine refusée pour M."+client.getNom());
 		}
 
-	}
+	}*/
 
 
 	/**
@@ -112,21 +111,21 @@ public class ServiceConseiller extends Conseiller {
 	 * @param client Client
 	 * @param compte Compte supprimé
 	 */
-	public void supprimerCompte(Client client, Compte compte){
+	/*public void supprimerCompte(Client client, Compte compte){
 		HashSet<Compte> listeCompte=client.getListeCompte();
 		listeCompte.remove(compte);
 		System.out.println("Compte "+compte.getNumCompte()+" supprimé");
-	}
+	}*/
 
 	/**
 	 * Cette méthode permet de créditer un compte d'un montant donné.
 	 * @param montant Montant crédité
 	 * @param compte Compte crédité
 	 */
-	public void crediterCompte(double montant, Compte compte){
+	/*public void crediterCompte(double montant, Compte compte){
 		compte.setSolde(compte.getSolde()+montant);
 		System.out.println("Compte "+compte.getNumCompte()+" crédité de "+montant+" €");
-	}
+	}*/
 
 	/**
 	 * La methode retire au solde du compte débité la valeur du montant, seulement s'il a les fonds suffisants.
@@ -136,7 +135,7 @@ public class ServiceConseiller extends Conseiller {
 	 * @param compteD Compte débité
 	 * @param compteC Compte crédité
 	 */
-	public void virement(double montant, CompteEpargne compteD, Compte compteC) {
+	/*public void virement(double montant, CompteEpargne compteD, Compte compteC) {
 
 		if (montant <=compteD.getSolde()) {
 			double soldeTmp = compteD.getSolde()-montant;
@@ -148,7 +147,7 @@ public class ServiceConseiller extends Conseiller {
 		else {
 			System.out.println("Le solde du compte débiteur est insuffisant.");
 		}
-	}
+	}*/
 
 	/**
 	 * La methode retire au solde du compte débité la valeur du montant, seulement s'il a les fonds ou un débit suffisant.
@@ -159,7 +158,7 @@ public class ServiceConseiller extends Conseiller {
 	 * @param compteD Compte débité
 	 * @param compteC Compte crédité
 	 */
-	public void virement(double montant, CompteCourant compteD, Compte compteC){
+	/*public void virement(double montant, CompteCourant compteD, Compte compteC){
 		if (montant <=(compteD.getSolde() + compteD.getDecouvert())) {
 			double soldeTmp = compteD.getSolde()-montant;
 			compteD.setSolde(soldeTmp);
@@ -171,14 +170,14 @@ public class ServiceConseiller extends Conseiller {
 		else {
 			System.out.println("Le solde du compte débiteur est insuffisant.");
 		}
-	}
+	}*/
 
 	/**
 	 * La méthode permet d'effectuer une simulation de crédit.
 	 * En fonction du solde du compte, on peut obtenir une, deux ou aucune autorisation de prêt.
 	 * @param compte Compte utilisé pour la simulation de crédit.
 	 */
-	public void simulationCredit(Compte compte) {
+	/*public void simulationCredit(Compte compte) {
 		if (compte.getSolde()<=1000){
 			System.out.println("Crédits consommation et immobilier refusés pour le compte "+compte.getNumCompte());
 		}
@@ -190,6 +189,6 @@ public class ServiceConseiller extends Conseiller {
 		}
 
 
-	}
+	}*/
 
 }

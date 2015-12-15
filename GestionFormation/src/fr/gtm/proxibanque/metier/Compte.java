@@ -3,33 +3,25 @@ package fr.gtm.proxibanque.metier;
 public abstract class Compte {
 
 	//proprietes
-	protected int numCompte;
-	protected double solde;
+	protected String numcompte;
+	protected String solde;
 	protected String dateOuverture;
 	protected String className = this.getClass().getSimpleName();
 	
 	//constructeur
-	public Compte(int numCompte, double solde, String dateOuverture) {
+	public Compte(String solde, String dateOuverture) {
 		super();
-		this.numCompte = numCompte;
 		this.solde = solde;
 		this.dateOuverture = dateOuverture;
 	}
 
 	//get set
-	public int getNumCompte() {
-		return numCompte;
-	}
 
-	public void setNumCompte(int numCompte) {
-		this.numCompte = numCompte;
-	}
-
-	public double getSolde() {
+	public String getSolde() {
 		return solde;
 	}
 
-	public void setSolde(double solde) {
+	public void setSolde(String solde) {
 		this.solde = solde;
 	}
 
@@ -41,9 +33,17 @@ public abstract class Compte {
 		this.dateOuverture = dateOuverture;
 	}
 
+	public String getNumcompte() {
+		return numcompte;
+	}
+
+	public void setNumcompte(String numcompte) {
+		this.numcompte = numcompte;
+	}
+
 	@Override
 	public String toString() {
-		return className +" [numCompte=" + numCompte + ", solde=" + solde
+		return className +" [solde=" + solde
 				+ ", dateOuverture=" + dateOuverture + "]";
 	}
 	

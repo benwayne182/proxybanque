@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="fr.gtm.proxibanque.dao.ConseillerDao"%>
 
@@ -27,8 +27,8 @@
 	<h1>
 		Bienvenue<br> <small>sur le site du</small>
 	</h1>
-	<a href="index.html"><img src="pics/logo_CA.jpg" alt="index"
-		width=300px class="img-rounded"></a>
+	<a href="index.html"><img src="pics/pic_title.png" alt="index"
+		id="pic_title"></a>
 
 	<%
 		ConseillerDao l = (ConseillerDao) session.getAttribute("consdao");
@@ -37,7 +37,7 @@
 	<form action="redirectCreaClient" method="post" accept-charset="UTF-8"
 		autocomplete="on">
 		<fieldset class="fieldset">
-			<legend>Formulaire de création de client</legend>
+			<legend>Formulaire de crÃ©ation de client</legend>
 			Nom<br>
 			<p>
 				<input type="text" class="form-control" name="nom" placeholder="Nom"
@@ -46,7 +46,7 @@
 			<br> Prenom<br>
 			<p>
 				<input type="text" class="form-control" name="prenom"
-					placeholder="Prénom" required>
+					placeholder="PrÃ©nom" required>
 			</p>
 			<br> Adresse<br>
 			<p>

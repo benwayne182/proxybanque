@@ -40,7 +40,7 @@ public class ServiceGerant extends Gerant {
 	 * La méthode retourne le nombre de comptes débiteurs, ainsi que leur type.
 	 * @param agence Agence auditée
 	 */
-	public void audit(Agence agence){
+	/*public void audit(Agence agence){
 		int nbCompteDebiteursP=0;
 		int nbCompteDebiteursE=0;
 		Gerant gerant= agence.getGerant();
@@ -72,7 +72,7 @@ public class ServiceGerant extends Gerant {
 		}
 		int nbCompteDebiteurs=nbCompteDebiteursE+nbCompteDebiteursP;
 		System.out.println("Il y a "+nbCompteDebiteurs+" comptes débiteurs, dont "+nbCompteDebiteursE+" comptes courants entreprise et "+nbCompteDebiteursP+" comptes courants particulier.");
-	}
+	}*/
 
 
 }

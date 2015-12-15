@@ -266,7 +266,6 @@ public class ClientDao {
 			try {
 				//Etape 5: fermer connec
 				cn.close();
-				//st.close();
 
 			} catch (SQLException e3) {
 				e3.printStackTrace();
@@ -316,8 +315,49 @@ public class ClientDao {
 			try {
 				//Etape 5: fermer connec
 				cn.close();
-				//st.close();
 
+			} catch (SQLException e3) {
+				e3.printStackTrace();
+
+			}
+
+		}
+
+	}
+
+	public void supprClient(String idclient){
+
+		//informations acces bdd
+		String url="jdbc:oracle:thin:@localhost:1521:XE";
+		String login="ben";
+		String passwd="ben";
+		Connection cn =null;
+		Statement st=null;
+
+		try{
+			//Etape 1 : charger driver
+			Class.forName("oracle.jdbc.OracleDriver");
+			//Etape 2: Creer connexion
+			cn=DriverManager.getConnection(url, login, passwd);
+			//Etape 3: Creer requete
+			st=cn.createStatement();
+			String sql = "DELETE FROM client WHERE id="+idclient;
+
+
+			//Etape 4: Executer requete
+			st.executeQuery(sql);
+			System.out.println("Client supprimé");
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e2){
+			e2.printStackTrace();
+
+		} finally{
+			try {
+				//Etape 5: fermer connec
+				cn.close();
+				st.close();
 			} catch (SQLException e3) {
 				e3.printStackTrace();
 

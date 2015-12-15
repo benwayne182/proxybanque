@@ -18,7 +18,7 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-<title>Création conseiller</title>
+<title>Modification client effectuée</title>
 </head>
 <h1>
 	Bienvenue<br> <small>sur le site du</small>
@@ -26,11 +26,19 @@
 <a href="index.html"><img src="pics/pic_title.png" alt="index"
 	id="pic_title"></a>
 <body>
-	<p>Vous êtes à présent enregistré sur ProxibanqueSI.</p>
+	<%
+		ConseillerDao l = (ConseillerDao) session.getAttribute("consdao");
+	%>
+	<p>Le client a été supprimé.</p>
 	<ul>
 		<li><a href="index.html" class="btn btn-info" role="button">Accueil</a></li>
-		<li>Identification Conseiller <br> <a href="login.html"
-			class="btn btn-info" role="button">Connectez-vous</a></li>
+		<li>Retour à la page conseiller <br>
+			<form action="redirect" method="post">
+				<input type="hidden" name="id" value=<%=l.getIdentifiant()%>>
+				<input type="hidden" name="password" value=<%=l.getPwd()%>>
+				<br> <input type="submit" value="Espace conseiller"
+					class="btn btn-info">
+			</form></li>
 	</ul>
 </body>
 </html>

@@ -44,7 +44,7 @@
     <servlet-name>ServletLireClient</servlet-name>
     <url-pattern>/redirectLireClient</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>ServletModifClient</display-name>
     <servlet-name>ServletModifClient</servlet-name>
@@ -53,5 +53,65 @@
   <servlet-mapping>
     <servlet-name>ServletModifClient</servlet-name>
     <url-pattern>/redirectModifClient</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletSupprClient</display-name>
+    <servlet-name>ServletSupprClient</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletSupprClient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletSupprClient</servlet-name>
+    <url-pattern>/redirectSupprClient</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletCreaEpargne</display-name>
+    <servlet-name>ServletCreaEpargne</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletCreaEpargne</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCreaEpargne</servlet-name>
+    <url-pattern>/redirectCompteEpargne</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletCreaCourant</display-name>
+    <servlet-name>ServletCreaCourant</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletCreaCourant</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCreaCourant</servlet-name>
+    <url-pattern>/redirectCompteCourant</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletCompteEpargne</display-name>
+    <servlet-name>ServletCompteEpargne</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletCompteEpargne</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCompteEpargne</servlet-name>
+    <url-pattern>/resultCreaEpargne</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletCompteCourant</display-name>
+    <servlet-name>ServletCompteCourant</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletCompteCourant</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCompteCourant</servlet-name>
+    <url-pattern>/resultCreaCourant</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>ServletListeCompte</display-name>
+    <servlet-name>ServletListeCompte</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletListeCompte</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletListeCompte</servlet-name>
+    <url-pattern>/redirectListeCompte</url-pattern>
   </servlet-mapping>
 </web-app>

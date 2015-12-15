@@ -4,31 +4,39 @@ public abstract class CompteCourant extends Compte {
 
 	//proprietes
 
-	protected double decouvert;
+	protected String decouvert;
+	protected String statut;
 
 	//constructeur
-	public CompteCourant(int numCompte, double solde, String dateOuverture, double decouvert) {
-		super(numCompte, solde, dateOuverture);
+	public CompteCourant(String solde, String dateOuverture, String decouvert, String statut) {
+		super(solde, dateOuverture);
 		this.decouvert = decouvert;
+		this.statut= statut;
 	}
-	public CompteCourant(int numCompte, double solde, String dateOuverture) {
-		super(numCompte, solde, dateOuverture);
-		this.decouvert = 1000.00;
 
-	}
 
 	//get set
-	public double getDecouvert() {
+	public String getDecouvert() {
 		return decouvert;
 	}
 
-	public void setDecouvert(double decouvert) {
+	public void setDecouvert(String decouvert) {
 		this.decouvert = decouvert;
 	}
+	
+	public String getStatut() {
+		return statut;
+	}
+
+
+	public void setStatut(String statut) {
+		this.statut = statut;
+	}
+
+
 	@Override
 	public String toString() {
-		return className + " decouvert=" + decouvert + ", numCompte="
-				+ numCompte + ", solde=" + solde + ", dateOuverture="
+		return className + " decouvert=" + decouvert + ", solde=" + solde + ", dateOuverture="
 				+ dateOuverture + "\n";
 	}
 
