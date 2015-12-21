@@ -17,12 +17,18 @@ public abstract class Personne {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+	
+	//constructeur
 	public Personne(String nom, String prenom) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 	}
 	
+	//constructeur(vide)
+	public Personne() {
+		
+	}
 	
 	
 

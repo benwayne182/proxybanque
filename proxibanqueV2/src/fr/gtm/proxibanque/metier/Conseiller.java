@@ -40,6 +40,11 @@ public abstract class Conseiller extends Personne{
 		this.identifiant=login;
 		this.pwd=password;
 	}
+	
+	//constructeur(vide)
+	public Conseiller() {
+		
+	}
 
 
 

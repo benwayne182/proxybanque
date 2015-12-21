@@ -21,6 +21,11 @@ public abstract class Client extends Personne{
 		this.ville = ville;
 		this.telephone = telephone;
 	}
+	
+	//constructeur(vide)
+	public Client() {
+		
+	}
 
 	//getters setters
 	public String getAdresse() {

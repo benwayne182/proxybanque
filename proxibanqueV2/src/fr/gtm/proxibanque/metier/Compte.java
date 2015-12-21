@@ -14,6 +14,11 @@ public abstract class Compte {
 		this.solde = solde;
 		this.dateOuverture = dateOuverture;
 	}
+	
+	//constructeur(vide)
+	public Compte() {
+		
+	}
 
 	//get set
 

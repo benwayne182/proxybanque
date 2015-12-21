@@ -13,6 +13,11 @@ public abstract class CompteCourant extends Compte {
 		this.decouvert = decouvert;
 		this.statut= statut;
 	}
+	
+	//constructeur(vide)
+	public CompteCourant() {
+
+	}
 
 
 	//get set
@@ -23,7 +28,7 @@ public abstract class CompteCourant extends Compte {
 	public void setDecouvert(String decouvert) {
 		this.decouvert = decouvert;
 	}
-	
+
 	public String getStatut() {
 		return statut;
 	}

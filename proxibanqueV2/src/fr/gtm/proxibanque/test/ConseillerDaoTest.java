@@ -14,24 +14,24 @@ import org.junit.Test;
 import fr.gtm.proxibanque.dao.ConseillerDao;
 
 public class ConseillerDaoTest{
-	
+
 	ConseillerDao consdao;
 	String id; String pwd;
 	Connection cn =null;
 	ResultSet rs = null;
-	
-    @Before public void initialize() {
+
+	@Before public void initialize() {
 
 		consdao = new ConseillerDao(null, null, null, null);
 		id="ben"; pwd="ben";
 
-     }
-    
-    @Before public void testConnection() {
+	}
+
+	@Before public void testConnection() {
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
 		String login="ben";
 		String passwd="ben";
-		
+
 		try{
 			//Etape 1 : charger driver
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -44,31 +44,31 @@ public class ConseillerDaoTest{
 			e2.printStackTrace();
 
 		}
-    }
-    
-    @Test public void testConnectionNotNull() {
-    	Assert.assertNotNull(cn);
-    	
-    }
-    
-    @Test public void testRead() {
-    	consdao=consdao.lireConseiller("ben", "ben");
-    	Assert.assertThat(consdao, IsInstanceOf.instanceOf(ConseillerDao.class));
-    	
-    }
-     
-    
-    @After public void closeConnection() {
-			try {
-				//Etape 5: fermer connec
-				cn.close();
+	}
 
-			} catch (SQLException e3) {
-				e3.printStackTrace();
+	@Test public void testConnectionNotNull() {
+		Assert.assertNotNull(cn);
 
-			}
+	}
 
-		
-    }
+	@Test public void testRead() {
+		consdao=consdao.lireConseiller("ben", "ben");
+		Assert.assertThat(consdao, IsInstanceOf.instanceOf(ConseillerDao.class));
+
+	}
+
+
+	@After public void closeConnection() {
+		try {
+			//Etape 5: fermer connec
+			cn.close();
+
+		} catch (SQLException e3) {
+			e3.printStackTrace();
+
+		}
+
+
+	}
 
 }

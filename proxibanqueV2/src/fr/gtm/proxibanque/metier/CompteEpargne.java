@@ -15,6 +15,11 @@ public class CompteEpargne extends Compte {
 		this.tauxRemuneration=tauxRemuneration;
 		// TODO Auto-generated constructor stub
 	}
+	
+	//constructeur(vide)
+	public CompteEpargne() {
+		
+	}
 
 	//toString
 	/**
