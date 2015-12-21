@@ -1,6 +1,6 @@
 package fr.gtm.proxibanque.metier;
 
-public abstract class CompteCourant extends Compte {
+public class CompteCourant extends Compte {
 
 	//proprietes
 

@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.gtm.proxibanque.dao.ClientDao;
-import fr.gtm.proxibanque.dao.ConseillerDao;
 import fr.gtm.proxibanque.metier.Client;
 import fr.gtm.proxibanque.metier.Conseiller;
+import fr.gtm.proxibanque.service.ServiceClient;
+import fr.gtm.proxibanque.service.ServiceConseiller;
 import fr.gtm.proxibanque.service.UserService;
 
 
@@ -56,14 +56,14 @@ public class ServletIdentification extends HttpServlet {
 
 
 		//Reponse a l'utilisateur
-		ConseillerDao consdao = new ConseillerDao();
-		Conseiller cons=consdao.lireConseiller(log.getId(), log.getPassword());
+		ServiceConseiller scons = new ServiceConseiller();
+		Conseiller cons=scons.lireConseiller(log.getId(), log.getPassword());
 		maSession.setAttribute("consdao", cons);
 		RequestDispatcher dispatcher;
 
 		if((login.equalsIgnoreCase(cons.getIdentifiant()))&&(pwd.equalsIgnoreCase(cons.getPwd()))){
-			ClientDao cl = new ClientDao();
-			ArrayList<Client> listeclient = cl.lireClients(cons.getIdConseiller());
+			ServiceClient sclient = new ServiceClient();
+			ArrayList<Client> listeclient = sclient.lireClients(cons.getIdConseiller());
 			maSession.setAttribute("listeclient", listeclient);
 			dispatcher=request.getRequestDispatcher("resultId.jsp");
 		}else{

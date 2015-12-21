@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.gtm.proxibanque.dao.ClientDao;
+import fr.gtm.proxibanque.service.ServiceClient;
 
 /**
  * Servlet implementation class ServletModifClient
@@ -57,10 +57,10 @@ public class ServletModifClient extends HttpServlet {
 		
 
 		//Soumettre les parametres de la requete a la couche service
-		ClientDao cdao = new ClientDao();
-		cdao.modifClient(idclient, nom, prenom, adresse, codepostal, ville, email, idcons);
+		ServiceClient sclient = new ServiceClient();
+		sclient.modifClient(idclient, nom, prenom, adresse, codepostal, ville, email, idcons);
 		HttpSession maSession = request.getSession();
-		maSession.setAttribute("cdao", cdao);
+		maSession.setAttribute("cdao", sclient);
 		
 		//Reponse a l'utilisateur
 		RequestDispatcher dispatcher=request.getRequestDispatcher("resultModifClientDone.jsp");;

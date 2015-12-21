@@ -9,22 +9,15 @@ import java.sql.Statement;
 
 import fr.gtm.proxibanque.metier.CompteEpargne;
 
-public class CompteEpargneDao extends CompteEpargne {
-	
-	public CompteEpargneDao(String solde, String dateOuverture, String tauxRemuneration) {
-		super(solde, dateOuverture, tauxRemuneration);
-		// TODO Auto-generated constructor stub
+public class CompteEpargneDao{
+
+
+	//constructeur
+	public CompteEpargneDao() {
+
 	}
 
-	//setters & getters
-	public String getTauxrem() {
-		return tauxRemuneration;
-	}
-
-	public void setTauxrem(String tauxrem) {
-		this.tauxRemuneration = tauxrem;
-	}
-	public void creerCompte(String idclient){
+	public void creerCompte(String idclient, String dateOuverture, String solde, String tauxRemuneration){
 
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -70,8 +63,8 @@ public class CompteEpargneDao extends CompteEpargne {
 		}
 
 	}
-	
-	public CompteEpargneDao lireCompte(String idclient){
+
+	public CompteEpargne lireCompte(String idclient){
 
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -80,7 +73,7 @@ public class CompteEpargneDao extends CompteEpargne {
 		Connection cn =null;
 		Statement st=null;
 		ResultSet rs = null;
-		CompteEpargneDao c=new CompteEpargneDao(solde, dateOuverture, tauxRemuneration);
+		CompteEpargne c=new CompteEpargne();
 		try{
 			//Etape 1 : charger driver
 			Class.forName("oracle.jdbc.OracleDriver");

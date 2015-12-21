@@ -1,19 +1,30 @@
 package fr.gtm.proxibanque.service;
 
 import fr.gtm.proxibanque.dao.ConseillerDao;
+import fr.gtm.proxibanque.metier.Conseiller;
+import fr.gtm.proxibanque.metier.IConseiller;
 
-public class ServiceConseiller extends ConseillerDao {
-	
+public class ServiceConseiller implements IConseiller{
+
 
 	ConseillerDao consdao = new ConseillerDao();
-	
 
-	//constructeur
+	//Constructeur
+	public ServiceConseiller() {
+
+	}
+
 
 	//methodes
+	public void creerConseiller(String nom, String prenom,	String identifiant,	String pwd) {
+		consdao.creerConseiller(nom, prenom, identifiant, pwd);
 
-	
-	
+	}
+
+	public Conseiller lireConseiller(String id, String pwd) {
+		return consdao.lireConseiller(id, pwd);
+	}
+
 
 
 }

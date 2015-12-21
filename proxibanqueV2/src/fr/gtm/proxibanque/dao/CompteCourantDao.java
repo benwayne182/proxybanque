@@ -9,15 +9,16 @@ import java.sql.Statement;
 
 import fr.gtm.proxibanque.metier.CompteCourant;
 
-public class CompteCourantDao extends CompteCourant{
+public class CompteCourantDao{
 
-	public CompteCourantDao(String solde, String dateOuverture, String decouvert, String statut) {
-		super(solde, dateOuverture, decouvert, statut);
-		// TODO Auto-generated constructor stub
+	
+	//constructeur(vide)
+	public CompteCourantDao() {
+		
 	}
 
 	
-	public void creerCompte(String idclient){
+	public void creerCompte(String idclient, String dateOuverture, String solde, String decouvert, String statut){
 
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -65,7 +66,7 @@ public class CompteCourantDao extends CompteCourant{
 
 	}
 	
-	public CompteCourantDao lireCompte(String idclient){
+	public CompteCourant lireCompte(String idclient){
 
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -74,7 +75,7 @@ public class CompteCourantDao extends CompteCourant{
 		Connection cn =null;
 		Statement st=null;
 		ResultSet rs = null;
-		CompteCourantDao c=new CompteCourantDao(solde, dateOuverture, decouvert, statut);
+		CompteCourant c=new CompteCourant();
 		try{
 			//Etape 1 : charger driver
 			Class.forName("oracle.jdbc.OracleDriver");

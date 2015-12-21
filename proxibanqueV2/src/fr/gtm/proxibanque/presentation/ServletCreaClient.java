@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.gtm.proxibanque.dao.ClientDao;
 import fr.gtm.proxibanque.metier.Client;
+import fr.gtm.proxibanque.service.ServiceClient;
 
 /**
  * Servlet implementation class ServletCreaClient
@@ -19,14 +19,14 @@ import fr.gtm.proxibanque.metier.Client;
 @WebServlet("/ServletCreaClient")
 public class ServletCreaClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletCreaClient() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ServletCreaClient() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,7 +43,7 @@ public class ServletCreaClient extends HttpServlet {
 		// TODO Auto-generated method stub
 		traitement(request, response);
 	}
-	
+
 	protected void traitement(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Recuperation des parametres de la requete
 		String nom=request.getParameter("nom");
@@ -55,20 +55,20 @@ public class ServletCreaClient extends HttpServlet {
 		String email=request.getParameter("email");
 		String idcons=request.getParameter("idconseiller");
 
-		
+
 
 		//Soumettre les parametres de la requete a la couche service
-		ClientDao cdao = new ClientDao();
-		cdao.creerClient(nom, prenom, adresse, codepostal, ville, telephone, email, idcons);
+		ServiceClient sclient = new ServiceClient();
+		sclient.creerClient(nom, prenom, adresse, codepostal, ville, telephone, email, idcons);
 		HttpSession maSession = request.getSession();
 		Client client=new Client(nom, prenom, adresse, codepostal, ville, telephone);
 		client.setEmail(email);
 		client.setIdconseiller(idcons);
 		maSession.setAttribute("cdao", client);
-		
+
 		//Reponse a l'utilisateur
 		RequestDispatcher dispatcher=request.getRequestDispatcher("resultCreaClient.jsp");;
-		
+
 		dispatcher.forward(request, response);
 	}
 

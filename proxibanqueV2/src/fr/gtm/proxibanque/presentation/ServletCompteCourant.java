@@ -8,7 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import fr.gtm.proxibanque.dao.CompteCourantDao;
+
+import fr.gtm.proxibanque.service.ServiceCompteCourant;
 
 /**
  * Servlet implementation class ServletCompteCourant
@@ -53,8 +54,8 @@ public class ServletCompteCourant extends HttpServlet {
 
 
 		//Soumettre les parametres de la requete a la couche service
-		CompteCourantDao ccdao = new CompteCourantDao(solde, dateouv, decouvert, statut);
-		ccdao.creerCompte(idclient);
+		ServiceCompteCourant scc = new ServiceCompteCourant();
+		scc.creerCompte(idclient, dateouv, solde, decouvert, statut);
 
 		//Reponse a l'utilisateur
 		RequestDispatcher dispatcher=request.getRequestDispatcher("resultCreaCompte.jsp");;

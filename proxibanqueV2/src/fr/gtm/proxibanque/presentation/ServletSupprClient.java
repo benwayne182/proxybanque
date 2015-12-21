@@ -8,9 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import fr.gtm.proxibanque.dao.ClientDao;
+import fr.gtm.proxibanque.service.ServiceClient;
 
 /**
  * Servlet implementation class ServletSupprClient
@@ -50,10 +48,8 @@ public class ServletSupprClient extends HttpServlet {
 		
 
 		//Soumettre les parametres de la requete a la couche service
-		ClientDao cdao = new ClientDao();
-		cdao.supprClient(idclient);
-		HttpSession maSession = request.getSession();
-		maSession.setAttribute("cdao", cdao);
+		ServiceClient sclient = new ServiceClient();
+		sclient.supprClient(idclient);
 		
 		//Reponse a l'utilisateur
 		RequestDispatcher dispatcher=request.getRequestDispatcher("resultSupprClient.jsp");;

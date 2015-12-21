@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.gtm.proxibanque.dao.CompteCourantDao;
-import fr.gtm.proxibanque.dao.CompteEpargneDao;
+import fr.gtm.proxibanque.metier.CompteCourant;
+import fr.gtm.proxibanque.metier.CompteEpargne;
+import fr.gtm.proxibanque.service.ServiceCompteCourant;
+import fr.gtm.proxibanque.service.ServiceCompteEpargne;
 
 /**
  * Servlet implementation class ServletListeCompte
@@ -51,10 +53,10 @@ public class ServletListeCompte extends HttpServlet {
 
 
 		//Soumettre les parametres de la requete a la couche service
-		CompteCourantDao ccdao2 = new CompteCourantDao("0", "0", "0", "0");
-		CompteEpargneDao cedao2 = new CompteEpargneDao("0", "0", "0");
-		CompteCourantDao ccdao = ccdao2.lireCompte(idclient);
-		CompteEpargneDao cedao = cedao2.lireCompte(idclient);
+		ServiceCompteCourant ccdao2 = new ServiceCompteCourant();
+		ServiceCompteEpargne cedao2 = new ServiceCompteEpargne();
+		CompteCourant ccdao = ccdao2.lireCompte(idclient);
+		CompteEpargne cedao = cedao2.lireCompte(idclient);
 		HttpSession maSession = request.getSession();
 		maSession.setAttribute("ccdao", ccdao);
 		maSession.setAttribute("cedao", cedao);

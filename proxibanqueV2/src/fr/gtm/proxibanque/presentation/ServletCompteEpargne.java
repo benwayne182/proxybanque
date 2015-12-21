@@ -8,7 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import fr.gtm.proxibanque.dao.CompteEpargneDao;
+
+import fr.gtm.proxibanque.service.ServiceCompteEpargne;
 
 /**
  * Servlet implementation class ServletCompteEpargne
@@ -50,8 +51,8 @@ public class ServletCompteEpargne extends HttpServlet {
 
 
 		//Soumettre les parametres de la requete a la couche service
-		CompteEpargneDao cedao = new CompteEpargneDao(solde, dateouv, tauxrem);
-		cedao.creerCompte(idclient);
+		ServiceCompteEpargne sce = new ServiceCompteEpargne();
+		sce.creerCompte(idclient, dateouv, solde, tauxrem);
 
 
 		//Reponse a l'utilisateur
