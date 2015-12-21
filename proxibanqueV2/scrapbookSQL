@@ -4,6 +4,11 @@ drop table conseiller cascade constraints purge;
 drop table comptecourant cascade constraints purge;
 drop table compteepargne cascade constraints purge;
 
+/*suppression sequences*/
+drop sequence seqCons;
+drop sequence seqClient;
+drop sequence seqCompte;
+
 
 truncate table conseiller;
 truncate table client;
