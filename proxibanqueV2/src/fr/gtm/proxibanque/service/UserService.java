@@ -1,10 +1,5 @@
 package fr.gtm.proxibanque.service;
-/**
- * Classe appelée pour stocker les informations d'indentification du conseiller au début de sa session de travail
- * @author BS, ML
- * @version 2.0
- *
- */
+
 public class UserService {
 	
 	//parametres

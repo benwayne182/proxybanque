@@ -8,13 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import fr.gtm.proxibanque.metier.CompteCourant;
-/**
- * Classe permettant la communication avec la table "Comptecourant" de la base de données.
- * Permet de créer un nouveau compte courant et d'extraire les informations de la table.
- * @author BS, ML
- * @version 2.0
- *
- */
+
 public class CompteCourantDao extends CompteCourant{
 
 	public CompteCourantDao(String solde, String dateOuverture, String decouvert, String statut) {
@@ -22,10 +16,7 @@ public class CompteCourantDao extends CompteCourant{
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * Methode pour creer un compte en base
-	 * @param idclient
-	 */
+	
 	public void creerCompte(String idclient){
 
 		//informations acces bdd
@@ -74,11 +65,6 @@ public class CompteCourantDao extends CompteCourant{
 
 	}
 	
-	/**
-	 * Methode pour lire un compte en base 
-	 * @param idclient
-	 * @return
-	 */
 	public CompteCourantDao lireCompte(String idclient){
 
 		//informations acces bdd

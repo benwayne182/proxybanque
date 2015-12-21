@@ -43,13 +43,6 @@ public class ServletCreaEpargne extends HttpServlet {
 		traitement(request, response);
 	}
 
-	/**
-	 * Methode permettant la redirection vers la page de formulaire de creation de compte epargne
-	 * @param request
-	 * @param response
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	protected void traitement(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Recuperation des parametres de la requete
 		String idclient=request.getParameter("idclient");

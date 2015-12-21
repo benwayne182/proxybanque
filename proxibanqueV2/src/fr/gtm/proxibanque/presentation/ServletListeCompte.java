@@ -44,16 +44,6 @@ public class ServletListeCompte extends HttpServlet {
 		traitement(request, response);
 	}
 
-	/**
-	 * Méthode permettant la sélection à partir de la base de la liste de comptes (courant et épargne) du client sélectionné
-	 * Redirection vers la page de confirmation de suppression du client
-	 * 
-	 * @param request
-	 * @param response
-	 * @throws ServletException
-	 * @throws IOException
-	 */
-	
 	protected void traitement(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Recuperation des parametres de la requete
 		String idclient=request.getParameter("idclient");

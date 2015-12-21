@@ -12,10 +12,7 @@ import java.util.ArrayList;
 import fr.gtm.proxibanque.metier.Client;
 /**
  * 
- * Classe permettant la communication avec la table "Client" de la base de données.
- * Permet de créer un nouveau client et d'extraire les informations de la table.
  * @author BS, ML
- * @version 2.0
  *
  */
 public class ClientDao extends Client{
@@ -26,7 +23,6 @@ public class ClientDao extends Client{
 	}
 
 	/**
-	 * Methode pour créer un client en base
 	 * @param nom
 	 * @param pre
 	 * @param adresse
@@ -89,7 +85,6 @@ public class ClientDao extends Client{
 
 
 	/**
-	 * Methode permettant au conseiller d'afficher l'ensemble de ses clients
 	 * @param idconseiller
 	 * @return
 	 */
@@ -157,7 +152,6 @@ public class ClientDao extends Client{
 	}
 
 	/**
-	 * Methode permettant de retourner les informations d'un client stocké en base
 	 * @param idclient
 	 * @return
 	 */
@@ -216,7 +210,6 @@ public class ClientDao extends Client{
 
 	}
 	/**
-	 * Methode permettant de modifier les informations d'un client stocké en base
 	 * @param idclient
 	 * @param nom
 	 * @param pre
@@ -276,7 +269,6 @@ public class ClientDao extends Client{
 	}
 
 	/**
-	 * Methode permettant de supprimer un client stocké en base
 	 * @param idclient
 	 */
 	public void supprClient(String idclient){

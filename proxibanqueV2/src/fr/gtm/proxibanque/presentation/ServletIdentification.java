@@ -41,19 +41,6 @@ public class ServletIdentification extends HttpServlet {
 		traitement(request, response);
 	}
 
-
-	/**
-	 * Méthode permettant l'interrogation de la base de données lors de l'identification du conseiller.
-	 * Commparaison des données entrées en formulaire avec les données présentes en base. 
-	 * Lorsque les données correspondent, redirection vers la page d'accueil du conseiller.
-	 * Lorsque les données ne correspondent pas, redirection vers une page invitant à re-saisir les informations demandées 
-	 * Redirection vers la page de confirmation de modification du client
-	 * 
-	 * @param request
-	 * @param response
-	 * @throws ServletException
-	 * @throws IOException
-	 */	
 	protected void traitement(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Recuperation des parametres de la requete
 		String login=request.getParameter("id");

@@ -9,13 +9,6 @@ import java.sql.Statement;
 
 import fr.gtm.proxibanque.metier.CompteEpargne;
 
-/**
- * Classe permettant la communication avec la table "Compteepargne" de la base de données.
- * Permet de créer un nouveau compte épargne et d'extraire les informations de la table.
- * @author BS, ML
- * @version 2.0
- *
- */
 public class CompteEpargneDao extends CompteEpargne {
 	
 	public CompteEpargneDao(String solde, String dateOuverture, String tauxRemuneration) {
@@ -31,11 +24,6 @@ public class CompteEpargneDao extends CompteEpargne {
 	public void setTauxrem(String tauxrem) {
 		this.tauxRemuneration = tauxrem;
 	}
-	
-	/**
-	 * Methode permettant au conseiller de créer un compte pour un client
-	 * @param idclient
-	 */
 	public void creerCompte(String idclient){
 
 		//informations acces bdd
@@ -83,10 +71,6 @@ public class CompteEpargneDao extends CompteEpargne {
 
 	}
 	
-	/**
-	 * Methode permettant au conseiller de lire les informations d'un compte d'un client
-	 * @param idclient
-	 */
 	public CompteEpargneDao lireCompte(String idclient){
 
 		//informations acces bdd

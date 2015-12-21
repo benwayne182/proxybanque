@@ -43,16 +43,6 @@ public class ServletModifClient extends HttpServlet {
 		traitement(request, response);
 	}
 	
-	/**
-	 * Méthode permettant la modification d'un client de la base de données à partir des paramètres rentrés dans le formulaire 
-	 * Redirection vers la page de confirmation de modification du client
-	 * 
-	 * @param request
-	 * @param response
-	 * @throws ServletException
-	 * @throws IOException
-	 */
-	
 	protected void traitement(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Recuperation des parametres de la requete
 		String idclient=request.getParameter("idclient");

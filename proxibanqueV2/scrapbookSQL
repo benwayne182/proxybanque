@@ -1,7 +1,3 @@
-/*creation user*/
-create user ben identified by ben;
-grant connect, resource to ben;
-
 /*suppression tables*/
 drop table client cascade constraints purge;
 drop table conseiller cascade constraints purge;

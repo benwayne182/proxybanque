@@ -1,11 +1,5 @@
 package fr.gtm.proxibanque.metier;
 
-/**
- * Classe abstraite permettant de définir les parametres d'un compte  courant
- * @author BS, ML
- * @version 2.0
- * 
- */
 public abstract class CompteCourant extends Compte {
 
 	//proprietes

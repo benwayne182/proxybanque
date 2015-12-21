@@ -40,14 +40,6 @@ public class ServletCreaCons extends HttpServlet {
 		traitement(request, response);
 	}
     
-	/**
-	 * Methode permettant la creation d'un conseiller dans la base de donnes à partir des parametres rentres dans le formulaire
-	 * Redirection vers la page de confirmation de creation de conseiller
-	 * @param request
-	 * @param response
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	protected void traitement(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Recuperation des parametres de la requete
 		String nom=request.getParameter("nom");
