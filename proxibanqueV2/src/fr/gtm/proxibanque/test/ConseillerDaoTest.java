@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import org.hamcrest.core.IsInstanceOf;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -46,6 +48,12 @@ public class ConseillerDaoTest{
     
     @Test public void testConnectionNotNull() {
     	Assert.assertNotNull(cn);
+    	
+    }
+    
+    @Test public void testRead() {
+    	consdao=consdao.lireConseiller("ben", "ben");
+    	Assert.assertThat(consdao, IsInstanceOf.instanceOf(ConseillerDao.class));
     	
     }
      
