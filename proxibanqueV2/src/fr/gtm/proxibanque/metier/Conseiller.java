@@ -1,6 +1,6 @@
 package fr.gtm.proxibanque.metier;
 
-public abstract class Conseiller extends Personne{
+public class Conseiller extends Personne{
 	//proprietes
 	protected int idConseiller;
 	protected String identifiant;

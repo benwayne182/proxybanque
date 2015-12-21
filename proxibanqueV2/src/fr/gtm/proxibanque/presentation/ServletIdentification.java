@@ -2,6 +2,7 @@ package fr.gtm.proxibanque.presentation;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import fr.gtm.proxibanque.dao.ClientDao;
 import fr.gtm.proxibanque.dao.ConseillerDao;
+import fr.gtm.proxibanque.metier.Client;
+import fr.gtm.proxibanque.metier.Conseiller;
 import fr.gtm.proxibanque.service.UserService;
 
 
@@ -53,14 +56,14 @@ public class ServletIdentification extends HttpServlet {
 
 
 		//Reponse a l'utilisateur
-		ConseillerDao consdao = new ConseillerDao(null,null,null,null);
-		consdao=consdao.lireConseiller(log.getId(), log.getPassword());
-		maSession.setAttribute("consdao", consdao);
+		ConseillerDao consdao = new ConseillerDao();
+		Conseiller cons=consdao.lireConseiller(log.getId(), log.getPassword());
+		maSession.setAttribute("consdao", cons);
 		RequestDispatcher dispatcher;
 
-		if((login.equalsIgnoreCase(consdao.getIdentifiant()))&&(pwd.equalsIgnoreCase(consdao.getPwd()))){
-			ClientDao cl = new ClientDao(null, null, null, null, null, null);
-			ArrayList<ClientDao> listeclient = cl.lireClients(consdao.getIdConseiller());
+		if((login.equalsIgnoreCase(cons.getIdentifiant()))&&(pwd.equalsIgnoreCase(cons.getPwd()))){
+			ClientDao cl = new ClientDao();
+			ArrayList<Client> listeclient = cl.lireClients(cons.getIdConseiller());
 			maSession.setAttribute("listeclient", listeclient);
 			dispatcher=request.getRequestDispatcher("resultId.jsp");
 		}else{

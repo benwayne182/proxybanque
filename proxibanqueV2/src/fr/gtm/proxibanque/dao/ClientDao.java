@@ -15,12 +15,8 @@ import fr.gtm.proxibanque.metier.Client;
  * @author BS, ML
  *
  */
-public class ClientDao extends Client{
+public class ClientDao {
  //constructeur
-
-	public ClientDao(String nom, String prenom, String adresse, String codePostal, String ville, String telephone) {
-		super(nom, prenom, adresse, codePostal, ville, telephone);
-	}
 
 	/**
 	 * @param nom
@@ -88,7 +84,7 @@ public class ClientDao extends Client{
 	 * @param idconseiller
 	 * @return
 	 */
-	public ArrayList<ClientDao> lireClients(int idconseiller){
+	public ArrayList<Client> lireClients(int idconseiller){
 
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -98,7 +94,7 @@ public class ClientDao extends Client{
 		Statement st=null;
 		ResultSet rs = null;
 
-		ArrayList<ClientDao> listeclient= new ArrayList<ClientDao>();
+		ArrayList<Client> listeclient= new ArrayList<Client>();
 		try{
 			//Etape 1 : charger driver
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -113,7 +109,7 @@ public class ClientDao extends Client{
 
 
 			while(rs.next()){
-				ClientDao client=new ClientDao(nom, prenom, adresse, codePostal, ville, telephone);
+				Client client=new Client();
 				client.setId(rs.getString("id"));
 				client.setNom(rs.getString("nom"));
 				client.setPrenom(rs.getString("prenom"));
@@ -122,7 +118,7 @@ public class ClientDao extends Client{
 				client.setVille(rs.getString("ville"));
 				client.setTelephone(rs.getString("telephone"));
 				client.setEmail(rs.getString("email"));
-				client.setIdconseiller(rs.getInt("idconseiller"));
+				client.setIdconseiller(rs.getString("idconseiller"));
 
 				listeclient.add(client);
 
@@ -155,7 +151,7 @@ public class ClientDao extends Client{
 	 * @param idclient
 	 * @return
 	 */
-	public ClientDao lireClient(String idclient){
+	public Client lireClient(String idclient){
 
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -164,7 +160,7 @@ public class ClientDao extends Client{
 		Connection cn =null;
 		Statement st=null;
 		ResultSet rs = null;
-		ClientDao client=new ClientDao(nom, prenom, adresse, codePostal, ville, telephone);
+		Client client=new Client();
 		try{
 			//Etape 1 : charger driver
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -185,7 +181,7 @@ public class ClientDao extends Client{
 				client.setVille(rs.getString("ville"));
 				client.setTelephone(rs.getString("telephone"));
 				client.setEmail(rs.getString("email"));
-				client.setIdconseiller(rs.getInt("idconseiller"));
+				client.setIdconseiller(rs.getString("idconseiller"));
 
 			}
 			System.out.println("Client trouvé");

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.gtm.proxibanque.dao.ClientDao;
+import fr.gtm.proxibanque.metier.Client;
 
 /**
  * Servlet implementation class ServletCreaEpargne
@@ -50,9 +51,9 @@ public class ServletCreaEpargne extends HttpServlet {
 
 
 		//Soumettre les parametres de la requete a la couche service
-		ClientDao cdao = new ClientDao(null, null, null, null, null, null).lireClient(idclient);
+		Client client = new ClientDao().lireClient(idclient);
 		HttpSession maSession = request.getSession();
-		maSession.setAttribute("cdao", cdao);
+		maSession.setAttribute("cdao", client);
 
 		//Reponse a l'utilisateur
 		RequestDispatcher dispatcher=request.getRequestDispatcher("resultCompteEpargne.jsp");

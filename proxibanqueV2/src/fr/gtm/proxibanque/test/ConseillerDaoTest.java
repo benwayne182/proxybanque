@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import fr.gtm.proxibanque.dao.ConseillerDao;
+import fr.gtm.proxibanque.metier.Conseiller;
 
 public class ConseillerDaoTest{
 
@@ -22,7 +23,7 @@ public class ConseillerDaoTest{
 
 	@Before public void initialize() {
 
-		consdao = new ConseillerDao(null, null, null, null);
+		consdao = new ConseillerDao();
 		id="ben"; pwd="ben";
 
 	}
@@ -52,8 +53,8 @@ public class ConseillerDaoTest{
 	}
 
 	@Test public void testRead() {
-		consdao=consdao.lireConseiller("ben", "ben");
-		Assert.assertThat(consdao, IsInstanceOf.instanceOf(ConseillerDao.class));
+		Conseiller cons=consdao.lireConseiller("ben", "ben");
+		Assert.assertThat(cons, IsInstanceOf.instanceOf(Conseiller.class));
 
 	}
 

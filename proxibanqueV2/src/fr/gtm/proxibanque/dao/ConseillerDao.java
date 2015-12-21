@@ -18,13 +18,8 @@ import fr.gtm.proxibanque.metier.Conseiller;
  * @version 2.0
  *
  */
-public class ConseillerDao extends Conseiller{
+public class ConseillerDao {
 
-	//constructeur
-	public ConseillerDao(String nom, String prenom, String login, String password) {
-		super(nom, prenom, login, password);
-
-	}
 /**
  * Méthode de création d'un nouveau conseiller. Les arguments de la méthode sont récupéreés des paramètres issus de la saisie du formulaire de création conseiller. 
  * 
@@ -82,7 +77,7 @@ public class ConseillerDao extends Conseiller{
  * @param pwd
  * @return
  */
-	public ConseillerDao lireConseiller(String id, String pwd){
+	public Conseiller lireConseiller(String id, String pwd){
 
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -92,7 +87,7 @@ public class ConseillerDao extends Conseiller{
 		Statement st=null;
 		ResultSet rs = null;
 
-		ConseillerDao consdao= new ConseillerDao(null,null,null,null);
+		Conseiller cons= new Conseiller();
 		try{
 			//Etape 1 : charger driver
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -105,11 +100,11 @@ public class ConseillerDao extends Conseiller{
 			rs=st.executeQuery(sql);
 			//Etape 5: recuperer le resultat
 			while(rs.next()){
-				consdao.idConseiller=rs.getInt("id");
-				consdao.nom=rs.getString("nom");
-				consdao.prenom=rs.getString("prenom");
-				consdao.identifiant=rs.getString("login");
-				consdao.pwd=rs.getString("password");
+				cons.setIdConseiller(rs.getInt("id"));
+				cons.setNom(rs.getString("nom"));
+				cons.setPrenom(rs.getString("prenom"));
+				cons.setIdentifiant(rs.getString("login"));
+				cons.setPwd(rs.getString("password"));
 
 			}
 			System.out.println("Conseiller trouvé");
@@ -131,7 +126,7 @@ public class ConseillerDao extends Conseiller{
 			}
 
 		}
-		return consdao;
+		return cons;
 
 	}
 

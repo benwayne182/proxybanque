@@ -1,6 +1,6 @@
 package fr.gtm.proxibanque.metier;
 
-public abstract class Client extends Personne{
+public class Client extends Personne{
 
 	//proprietes
 	protected String id;
@@ -9,7 +9,7 @@ public abstract class Client extends Personne{
 	protected String ville ;
 	protected String telephone ;
 	protected String email;
-	protected int idconseiller;
+	protected String idconseiller;
 
 
 	//constructeur
@@ -83,11 +83,11 @@ public abstract class Client extends Personne{
 		this.email = email;
 	}
 
-	public int getIdconseiller() {
+	public String getIdconseiller() {
 		return idconseiller;
 	}
 
-	public void setIdconseiller(int idconseiller) {
+	public void setIdconseiller(String idconseiller) {
 		this.idconseiller = idconseiller;
 	}
 

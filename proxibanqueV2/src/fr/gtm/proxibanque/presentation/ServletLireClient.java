@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.gtm.proxibanque.dao.ClientDao;
+import fr.gtm.proxibanque.metier.Client;
 
 /**
  * Servlet implementation class ModifClient
@@ -50,8 +51,8 @@ public class ServletLireClient extends HttpServlet {
 
 
 		//Soumettre les parametres de la requete a la couche service
-		ClientDao cdao = new ClientDao(null, null, null, null, null, null);
-		ClientDao client_modif = cdao.lireClient(idclient);
+		ClientDao cdao = new ClientDao();
+		Client client_modif = cdao.lireClient(idclient);
 		HttpSession maSession = request.getSession();
 		maSession.setAttribute("client_modif", client_modif);
 

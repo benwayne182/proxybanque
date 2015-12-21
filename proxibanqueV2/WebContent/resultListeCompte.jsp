@@ -1,4 +1,4 @@
-<%@page import="fr.gtm.proxibanque.dao.ConseillerDao"%>
+<%@page import="fr.gtm.proxibanque.metier.Conseiller"%>
 <%@page import="fr.gtm.proxibanque.metier.CompteCourant"%>
 <%@page import="fr.gtm.proxibanque.metier.CompteEpargne"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -31,7 +31,7 @@
 
 
 	<%
-		ConseillerDao l = (ConseillerDao) session.getAttribute("consdao");
+		Conseiller l = (Conseiller) session.getAttribute("consdao");
 		CompteEpargne ce = (CompteEpargne) session.getAttribute("cedao");
 		CompteCourant cc = (CompteCourant) session.getAttribute("ccdao");
 	%>
