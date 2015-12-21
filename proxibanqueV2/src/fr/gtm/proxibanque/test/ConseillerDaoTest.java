@@ -44,7 +44,7 @@ public class ConseillerDaoTest{
 		}
     }
     
-    @Test public void test() {
+    @Test public void testConnectionNotNull() {
     	Assert.assertNotNull(cn);
     	
     }
