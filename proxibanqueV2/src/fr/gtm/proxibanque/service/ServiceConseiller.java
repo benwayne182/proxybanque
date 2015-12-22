@@ -2,9 +2,8 @@ package fr.gtm.proxibanque.service;
 
 import fr.gtm.proxibanque.dao.ConseillerDao;
 import fr.gtm.proxibanque.metier.Conseiller;
-import fr.gtm.proxibanque.metier.IConseiller;
 
-public class ServiceConseiller implements IConseiller{
+public class ServiceConseiller implements IServiceConseiller{
 
 
 	ConseillerDao consdao = new ConseillerDao();

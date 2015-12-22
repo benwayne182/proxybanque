@@ -1,6 +1,8 @@
-package fr.gtm.proxibanque.metier;
+package fr.gtm.proxibanque.service;
 
-public interface IConseiller {
+import fr.gtm.proxibanque.metier.Conseiller;
+
+public interface IServiceConseiller {
 	
 	 public void creerConseiller(String nom, String prenom,	String identifiant,	String pwd);
 	 

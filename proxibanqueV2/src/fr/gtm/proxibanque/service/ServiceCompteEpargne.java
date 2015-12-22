@@ -2,9 +2,8 @@ package fr.gtm.proxibanque.service;
 
 import fr.gtm.proxibanque.dao.CompteEpargneDao;
 import fr.gtm.proxibanque.metier.CompteEpargne;
-import fr.gtm.proxibanque.metier.ICompteEpargne;
 
-public class ServiceCompteEpargne implements ICompteEpargne{
+public class ServiceCompteEpargne implements IServiceCompteEpargne{
 
 	
 	CompteEpargneDao cedao = new CompteEpargneDao();

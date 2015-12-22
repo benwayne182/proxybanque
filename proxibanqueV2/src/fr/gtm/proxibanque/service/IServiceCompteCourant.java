@@ -1,6 +1,8 @@
-package fr.gtm.proxibanque.metier;
+package fr.gtm.proxibanque.service;
 
-public interface ICompteCourant {
+import fr.gtm.proxibanque.metier.CompteCourant;
+
+public interface IServiceCompteCourant {
 
 	public void creerCompte(String idclient, String dateOuverture, String solde, String decouvert, String statut);
 

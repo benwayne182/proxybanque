@@ -59,7 +59,7 @@ public class ConseillerDaoTest{
 	}
 
 	@Test public void virementTest() {
-		consdao.virement(2,1, 2000);
+		consdao.virement(1,2, 500);
 	}
 
 	@After public void closeConnection() {

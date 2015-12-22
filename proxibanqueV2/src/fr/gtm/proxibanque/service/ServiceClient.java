@@ -4,9 +4,8 @@ import java.util.ArrayList;
 
 import fr.gtm.proxibanque.dao.ClientDao;
 import fr.gtm.proxibanque.metier.Client;
-import fr.gtm.proxibanque.metier.IClient;
 
-public class ServiceClient implements IClient {
+public class ServiceClient implements IServiceClient {
 
 	ClientDao clientdao = new ClientDao();
 

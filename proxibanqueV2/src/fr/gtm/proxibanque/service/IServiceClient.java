@@ -1,8 +1,10 @@
-package fr.gtm.proxibanque.metier;
+package fr.gtm.proxibanque.service;
 
 import java.util.ArrayList;
 
-public interface IClient {
+import fr.gtm.proxibanque.metier.Client;
+
+public interface IServiceClient {
 
 	public void creerClient(String nom,	String pre,	String adresse,	String codep, String ville, String tel, String mail, String idcons);
 	public ArrayList<Client> lireClients(int idconseiller);

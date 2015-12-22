@@ -2,9 +2,8 @@ package fr.gtm.proxibanque.service;
 
 import fr.gtm.proxibanque.dao.CompteCourantDao;
 import fr.gtm.proxibanque.metier.CompteCourant;
-import fr.gtm.proxibanque.metier.ICompteCourant;
 
-public class ServiceCompteCourant implements ICompteCourant{
+public class ServiceCompteCourant implements IServiceCompteCourant{
 
 	CompteCourantDao ccdao = new CompteCourantDao();
 
