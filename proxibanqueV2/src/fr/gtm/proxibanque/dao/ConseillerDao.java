@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import fr.gtm.proxibanque.metier.CompteCourant;
+import fr.gtm.proxibanque.metier.CompteEpargne;
 import fr.gtm.proxibanque.metier.Conseiller;
 /**
  * Classe permettant la communication avec la table "Conseiller" de la base de données.
@@ -20,14 +22,14 @@ import fr.gtm.proxibanque.metier.Conseiller;
  */
 public class ConseillerDao {
 
-/**
- * Méthode de création d'un nouveau conseiller. Les arguments de la méthode sont récupéreés des paramètres issus de la saisie du formulaire de création conseiller. 
- * 
- * @param nom
- * @param prenom
- * @param identifiant
- * @param pwd
- */
+	/**
+	 * Méthode de création d'un nouveau conseiller. Les arguments de la méthode sont récupéreés des paramètres issus de la saisie du formulaire de création conseiller. 
+	 * 
+	 * @param nom
+	 * @param prenom
+	 * @param identifiant
+	 * @param pwd
+	 */
 	public void creerConseiller(String nom,	String prenom,	String identifiant,	String pwd){
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -70,13 +72,13 @@ public class ConseillerDao {
 	}
 
 
-/**
- * Méthode permettant d'extraire les informations d'un conseiller suite à la saisie de son login et de son mot de passe.
- * 
- * @param id
- * @param pwd
- * @return
- */
+	/**
+	 * Méthode permettant d'extraire les informations d'un conseiller suite à la saisie de son login et de son mot de passe.
+	 * 
+	 * @param id
+	 * @param pwd
+	 * @return
+	 */
 	public Conseiller lireConseiller(String id, String pwd){
 
 		//informations acces bdd
@@ -128,6 +130,41 @@ public class ConseillerDao {
 		}
 		return cons;
 
+	}
+
+	/**
+	 * Méthode permettant d'effectuer un virement entre deux comptes
+	 * @param numcompteD numéro du compte à débiter
+	 * @param numcompteC numéro du compte à créditer
+	 * @param montant montant du virement
+	 */
+	public void virement(String numcompteD, String numcompteC, float montant) {
+		CompteCourant ccd= new CompteCourantDao().findCompte(numcompteD);
+		CompteEpargne ced= new CompteEpargneDao().findCompte(numcompteD);
+		CompteCourant ccc= new CompteCourantDao().findCompte(numcompteC);
+		CompteEpargne cec= new CompteEpargneDao().findCompte(numcompteC);
+
+		if (ccd.getSolde()!=null) {
+			if (ccc.getSolde()!=null) {
+				
+			}else if (cec.getSolde()!=null) {
+
+			}else {
+				System.out.println("Virement impossible, compte à créditer inexistant");
+			}
+
+		}else if (ced.getSolde()!=null) {
+			if (ccc.getSolde()!=null) {
+
+			}else if (cec.getSolde()!=null) {
+
+			}else {
+				System.out.println("Virement impossible, compte à créditer inexistant");
+			}
+
+		}else {
+			System.out.println("Virement impossible, compte à débiter inexistant");
+		}
 	}
 
 }
