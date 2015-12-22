@@ -24,6 +24,10 @@ public class ServiceConseiller implements IConseiller{
 	public Conseiller lireConseiller(String id, String pwd) {
 		return consdao.lireConseiller(id, pwd);
 	}
+	
+	public void virement(int numcompteD, int numcompteC, float montant) {
+		consdao.virement(numcompteD, numcompteC, montant);
+	}
 
 
 

@@ -6,5 +6,7 @@ public interface IConseiller {
 	 
 	 public Conseiller lireConseiller(String id, String pwd);
 	 
+	 public void virement(int numcompteD, int numcompteC, float montant);
+	 
 	 
 }
