@@ -17,6 +17,10 @@ public class ServiceCompteEpargne implements ICompteEpargne{
 		return cedao.lireCompte(idclient);
 		
 	}
+
+	public CompteEpargne findCompte(String numcompte) {
+		return cedao.findCompte(numcompte);
+	}
 	
 	
 

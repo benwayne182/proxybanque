@@ -18,4 +18,10 @@ public class ServiceCompteCourant implements ICompteCourant{
 		return ccdao.lireCompte(idclient);
 		
 	}
+
+	public CompteCourant findCompte(String numcompte) {
+		return ccdao.findCompte(numcompte);
+	}
+	
+	
 }
