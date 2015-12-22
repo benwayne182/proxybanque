@@ -5,4 +5,6 @@ public interface ICompteEpargne {
 	public void creerCompte(String idclient, String dateOuverture, String solde, String tauxRemuneration);
 	
 	public CompteEpargne lireCompte(String idclient);
+	
+	public CompteEpargne findCompte(String numcompte);
 }
