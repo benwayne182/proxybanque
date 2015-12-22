@@ -115,7 +115,12 @@ public class CompteCourantDao{
 
 	}
 
-	public CompteCourant findCompte(String numcompte) {
+	/**
+	 * Methode permettant de trouver un compte courant en fonction de son numero de compte
+	 * @param numcompte
+	 * @return
+	 */
+	public CompteCourant findCompte(int numcompte) {
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
 		String login="ben";
@@ -162,5 +167,49 @@ public class CompteCourantDao{
 
 		}
 		return c;
+	}
+	
+	public void modifCompteC(int numcompte, String solde){
+
+		//informations acces bdd
+		String url="jdbc:oracle:thin:@localhost:1521:XE";
+		String login="ben";
+		String passwd="ben";
+		Connection cn =null;
+
+		try{
+			//Etape 1 : charger driver
+			Class.forName("oracle.jdbc.OracleDriver");
+			//Etape 2: Creer connexion
+			cn=DriverManager.getConnection(url, login, passwd);
+			//Etape 3: Creer requete
+			String sql = "UPDATE comptecourant SET solde =? WHERE numcompte="+numcompte;
+			PreparedStatement stm = cn.prepareStatement(sql);
+
+			Float soldeF=Float.parseFloat(solde);
+			stm.setFloat(1, soldeF);
+
+
+			//Etape 4: Executer requete
+			stm.executeUpdate();
+			System.out.println("Compte modifié");
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e2){
+			e2.printStackTrace();
+
+		} finally{
+			try {
+				//Etape 5: fermer connec
+				cn.close();
+
+			} catch (SQLException e3) {
+				e3.printStackTrace();
+
+			}
+
+		}
+
 	}
 }

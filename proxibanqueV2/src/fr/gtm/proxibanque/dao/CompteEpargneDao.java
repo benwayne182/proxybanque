@@ -111,7 +111,13 @@ public class CompteEpargneDao{
 
 	}
 
-	public CompteEpargne findCompte(String numcompte) {
+	
+	/**
+	 * Methode permettant de trouver un compte épargne en fonction de son numero de compte
+	 * @param numcompteD
+	 * @return
+	 */
+	public CompteEpargne findCompte(int numcompteD) {
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
 		String login="ben";
@@ -127,7 +133,7 @@ public class CompteEpargneDao{
 			cn=DriverManager.getConnection(url, login, passwd);
 			//Etape 3: Creer requete
 			st=cn.createStatement();
-			String sql= "SELECT * FROM compteepargne where numcompte='"+numcompte+"'";
+			String sql= "SELECT * FROM compteepargne where numcompte='"+numcompteD+"'";
 			//Etape 4: Executer requete
 			rs=st.executeQuery(sql);
 
@@ -157,5 +163,50 @@ public class CompteEpargneDao{
 
 		}
 		return c;
+	}
+	
+	
+	public void modifCompteE(int numcompteC, String solde){
+
+		//informations acces bdd
+		String url="jdbc:oracle:thin:@localhost:1521:XE";
+		String login="ben";
+		String passwd="ben";
+		Connection cn =null;
+
+		try{
+			//Etape 1 : charger driver
+			Class.forName("oracle.jdbc.OracleDriver");
+			//Etape 2: Creer connexion
+			cn=DriverManager.getConnection(url, login, passwd);
+			//Etape 3: Creer requete
+			String sql = "UPDATE compteepargne SET solde =? WHERE numcompte="+numcompteC;
+			PreparedStatement stm = cn.prepareStatement(sql);
+
+			Float soldeF=Float.parseFloat(solde);
+			stm.setFloat(1, soldeF);
+
+
+			//Etape 4: Executer requete
+			stm.executeUpdate();
+			System.out.println("Compte modifié");
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e2){
+			e2.printStackTrace();
+
+		} finally{
+			try {
+				//Etape 5: fermer connec
+				cn.close();
+
+			} catch (SQLException e3) {
+				e3.printStackTrace();
+
+			}
+
+		}
+
 	}
 }

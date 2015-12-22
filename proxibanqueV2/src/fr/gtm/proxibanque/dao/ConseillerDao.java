@@ -132,32 +132,86 @@ public class ConseillerDao {
 
 	}
 
+
+
 	/**
 	 * Méthode permettant d'effectuer un virement entre deux comptes
 	 * @param numcompteD numéro du compte à débiter
 	 * @param numcompteC numéro du compte à créditer
 	 * @param montant montant du virement
 	 */
-	public void virement(String numcompteD, String numcompteC, float montant) {
+	public void virement(int numcompteD, int numcompteC, float montant) {
 		CompteCourant ccd= new CompteCourantDao().findCompte(numcompteD);
 		CompteEpargne ced= new CompteEpargneDao().findCompte(numcompteD);
 		CompteCourant ccc= new CompteCourantDao().findCompte(numcompteC);
 		CompteEpargne cec= new CompteEpargneDao().findCompte(numcompteC);
+		CompteCourantDao ccdao = new CompteCourantDao();
+		CompteEpargneDao cedao = new CompteEpargneDao();
 
 		if (ccd.getSolde()!=null) {
 			if (ccc.getSolde()!=null) {
-				
-			}else if (cec.getSolde()!=null) {
+				float soldeCD=Float.parseFloat(ccd.getSolde());
+				float soldeCC=Float.parseFloat(ccc.getSolde());
+				float decouvertCD=Float.parseFloat(ccd.getDecouvert());
+				if((soldeCD+decouvertCD)>=montant) {
+					soldeCD-=montant;
+					soldeCC+=montant;
+					String soldeCDs=String.valueOf(soldeCD);
+					String soldeCCs=String.valueOf(soldeCC);
+					ccdao.modifCompteC(numcompteD, soldeCDs);
+					ccdao.modifCompteC(numcompteC, soldeCCs);
 
+				}else {
+					System.out.println("Solde insuffisant sur le compte débité");
+				}
+			}else if (cec.getSolde()!=null) {
+				float soldeCD=Float.parseFloat(ccd.getSolde());
+				float soldeCC=Float.parseFloat(cec.getSolde());
+				float decouvertCD=Float.parseFloat(ccd.getDecouvert());
+				if((soldeCD+decouvertCD)>=montant) {
+					soldeCD-=montant;
+					soldeCC+=montant;
+					String soldeCDs=String.valueOf(soldeCD);
+					String soldeCCs=String.valueOf(soldeCC);
+					ccdao.modifCompteC(numcompteD, soldeCDs);
+					cedao.modifCompteE(numcompteC, soldeCCs);
+
+				}else {
+					System.out.println("Solde insuffisant sur le compte débité");
+				}
 			}else {
 				System.out.println("Virement impossible, compte à créditer inexistant");
 			}
 
 		}else if (ced.getSolde()!=null) {
 			if (ccc.getSolde()!=null) {
+				float soldeCD=Float.parseFloat(ced.getSolde());
+				float soldeCC=Float.parseFloat(ccc.getSolde());
+				if((soldeCD)>=montant) {
+					soldeCD-=montant;
+					soldeCC+=montant;
+					String soldeCDs=String.valueOf(soldeCD);
+					String soldeCCs=String.valueOf(soldeCC);
+					cedao.modifCompteE(numcompteD, soldeCDs);
+					ccdao.modifCompteC(numcompteC, soldeCCs);
 
+				}else {
+					System.out.println("Solde insuffisant sur le compte débité");
+				}
 			}else if (cec.getSolde()!=null) {
+				float soldeCD=Float.parseFloat(ced.getSolde());
+				float soldeCC=Float.parseFloat(cec.getSolde());
+				if((soldeCD)>=montant) {
+					soldeCD-=montant;
+					soldeCC+=montant;
+					String soldeCDs=String.valueOf(soldeCD);
+					String soldeCCs=String.valueOf(soldeCC);
+					cedao.modifCompteE(numcompteD, soldeCDs);
+					cedao.modifCompteE(numcompteC, soldeCCs);
 
+				}else {
+					System.out.println("Solde insuffisant sur le compte débité");
+				}
 			}else {
 				System.out.println("Virement impossible, compte à créditer inexistant");
 			}

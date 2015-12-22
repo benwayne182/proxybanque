@@ -6,5 +6,7 @@ public interface ICompteEpargne {
 	
 	public CompteEpargne lireCompte(String idclient);
 	
-	public CompteEpargne findCompte(String numcompte);
+	public CompteEpargne findCompte(int numcompte);
+	
+	public void modifCompteE(int numcompte, String solde);
 }

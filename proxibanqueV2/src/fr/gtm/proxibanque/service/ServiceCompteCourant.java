@@ -19,8 +19,14 @@ public class ServiceCompteCourant implements ICompteCourant{
 		
 	}
 
-	public CompteCourant findCompte(String numcompte) {
+	public CompteCourant findCompte(int numcompte) {
 		return ccdao.findCompte(numcompte);
+	}
+
+
+	public void modifCompteC(int numcompte, String solde) {
+		ccdao.modifCompteC(numcompte, solde);
+		
 	}
 	
 	

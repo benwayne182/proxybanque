@@ -18,8 +18,13 @@ public class ServiceCompteEpargne implements ICompteEpargne{
 		
 	}
 
-	public CompteEpargne findCompte(String numcompte) {
+	public CompteEpargne findCompte(int numcompte) {
 		return cedao.findCompte(numcompte);
+	}
+
+	public void modifCompteE(int numcompte, String solde) {
+		cedao.modifCompteE(numcompte, solde);
+		
 	}
 	
 	

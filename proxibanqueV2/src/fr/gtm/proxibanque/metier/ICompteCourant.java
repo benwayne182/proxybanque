@@ -6,5 +6,7 @@ public interface ICompteCourant {
 
 	public CompteCourant lireCompte(String idclient);
 
-	public CompteCourant findCompte(String numcompte);
+	public CompteCourant findCompte(int numcompte);
+	
+	public void modifCompteC(int numcompte, String solde);
 }

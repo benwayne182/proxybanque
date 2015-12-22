@@ -58,6 +58,9 @@ public class ConseillerDaoTest{
 
 	}
 
+	@Test public void virementTest() {
+		consdao.virement(2,1, 2000);
+	}
 
 	@After public void closeConnection() {
 		try {
