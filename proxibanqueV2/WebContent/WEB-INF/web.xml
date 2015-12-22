@@ -104,7 +104,7 @@
     <servlet-name>ServletCompteCourant</servlet-name>
     <url-pattern>/resultCreaCourant</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>ServletListeCompte</display-name>
     <servlet-name>ServletListeCompte</servlet-name>
@@ -114,20 +114,31 @@
     <servlet-name>ServletListeCompte</servlet-name>
     <url-pattern>/redirectListeCompte</url-pattern>
   </servlet-mapping>
-	<listener>
-		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
-	</listener>
-  <error-page><error-code>404</error-code>
-  <location>/erreur.html</location>  
+      <servlet>
+    <description></description>
+    <display-name>ServletVirement</display-name>
+    <servlet-name>ServletVirement</servlet-name>
+    <servlet-class>fr.gtm.proxibanque.presentation.ServletVirement</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletVirement</servlet-name>
+    <url-pattern>/redirectVirement</url-pattern>
+  </servlet-mapping>
+  <listener>
+    <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+  </listener>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/erreur.html</location>
   </error-page>
-<error-page>
+  <error-page>
     <exception-type>
           javax.servlet.ServletException
-    </exception-type >
+    </exception-type>
     <location>/erreur.html</location>
-</error-page>
-<error-page>
-    <exception-type>java.io.IOException</exception-type >
+  </error-page>
+  <error-page>
+    <exception-type>java.io.IOException</exception-type>
     <location>/erreur.html</location>
-</error-page>
+  </error-page>
 </web-app>

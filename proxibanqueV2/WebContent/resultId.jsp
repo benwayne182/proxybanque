@@ -93,6 +93,10 @@
 		<li><a href="creation_client.jsp" class="btn btn-info"
 			role="button">Créer un client</a></li>
 	</ul>
+		<ul>
+		<li><a href="virement.jsp" class="btn btn-info"
+			role="button">Effectuer un virement entre deux comptes</a></li>
+	</ul>
 	<p>
 		Envoyez-nous un <a href="mailto:ben.sinivassin@gmail.com"
 			class="btn btn-link">mail</a>.
