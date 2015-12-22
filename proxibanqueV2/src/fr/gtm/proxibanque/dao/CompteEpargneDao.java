@@ -110,4 +110,52 @@ public class CompteEpargneDao{
 		return c;
 
 	}
+
+	public CompteEpargne findCompte(String numcompte) {
+		//informations acces bdd
+		String url="jdbc:oracle:thin:@localhost:1521:XE";
+		String login="ben";
+		String passwd="ben";
+		Connection cn =null;
+		Statement st=null;
+		ResultSet rs = null;
+		CompteEpargne c=new CompteEpargne();
+		try{
+			//Etape 1 : charger driver
+			Class.forName("oracle.jdbc.OracleDriver");
+			//Etape 2: Creer connexion
+			cn=DriverManager.getConnection(url, login, passwd);
+			//Etape 3: Creer requete
+			st=cn.createStatement();
+			String sql= "SELECT * FROM compteepargne where numcompte='"+numcompte+"'";
+			//Etape 4: Executer requete
+			rs=st.executeQuery(sql);
+
+			while(rs.next()){
+				c.setSolde(rs.getString("solde"));
+				c.setNumcompte(rs.getString("numcompte"));
+				c.setDateOuverture(rs.getString("datecrea"));
+				c.setTauxRemuneration(rs.getString("tauxrem"));
+			}
+
+			System.out.println("Recherche de compte épargne effectuée");
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e2){
+			e2.printStackTrace();
+
+		} finally{
+			try {
+				//Etape 5: fermer connec
+				cn.close();
+
+			} catch (SQLException e3) {
+				e3.printStackTrace();
+
+			}
+
+		}
+		return c;
+	}
 }

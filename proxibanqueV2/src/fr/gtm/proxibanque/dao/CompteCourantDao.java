@@ -11,13 +11,13 @@ import fr.gtm.proxibanque.metier.CompteCourant;
 
 public class CompteCourantDao{
 
-	
+
 	//constructeur(vide)
 	public CompteCourantDao() {
-		
+
 	}
 
-	
+
 	public void creerCompte(String idclient, String dateOuverture, String solde, String decouvert, String statut){
 
 		//informations acces bdd
@@ -65,7 +65,7 @@ public class CompteCourantDao{
 		}
 
 	}
-	
+
 	public CompteCourant lireCompte(String idclient){
 
 		//informations acces bdd
@@ -92,7 +92,7 @@ public class CompteCourantDao{
 				c.setNumcompte(rs.getString("numcompte"));
 				c.setStatut(rs.getString("statut"));
 			}
-			
+
 			System.out.println("Compte courant trouvé");
 
 		} catch (SQLException e){
@@ -113,5 +113,54 @@ public class CompteCourantDao{
 		}
 		return c;
 
+	}
+
+	public CompteCourant findCompte(String numcompte) {
+		//informations acces bdd
+		String url="jdbc:oracle:thin:@localhost:1521:XE";
+		String login="ben";
+		String passwd="ben";
+		Connection cn =null;
+		Statement st=null;
+		ResultSet rs = null;
+		CompteCourant c=new CompteCourant();
+		try{
+			//Etape 1 : charger driver
+			Class.forName("oracle.jdbc.OracleDriver");
+			//Etape 2: Creer connexion
+			cn=DriverManager.getConnection(url, login, passwd);
+			//Etape 3: Creer requete
+			st=cn.createStatement();
+			String sql= "SELECT * FROM comptecourant where numcompte='"+numcompte+"'";
+			//Etape 4: Executer requete
+			rs=st.executeQuery(sql);
+
+			while(rs.next()){
+				c.setSolde(rs.getString("solde"));
+				c.setNumcompte(rs.getString("numcompte"));
+				c.setStatut(rs.getString("statut"));
+				c.setDateOuverture(rs.getString("datecrea"));
+				c.setDecouvert(rs.getString("decouvert"));
+			}
+
+			System.out.println("Recherche de compte courant effectuée");
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e2){
+			e2.printStackTrace();
+
+		} finally{
+			try {
+				//Etape 5: fermer connec
+				cn.close();
+
+			} catch (SQLException e3) {
+				e3.printStackTrace();
+
+			}
+
+		}
+		return c;
 	}
 }

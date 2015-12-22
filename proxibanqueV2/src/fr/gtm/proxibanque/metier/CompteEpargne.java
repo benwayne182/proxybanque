@@ -21,6 +21,16 @@ public class CompteEpargne extends Compte {
 		
 	}
 
+	
+	//setters getters
+	public String getTauxRemuneration() {
+		return tauxRemuneration;
+	}
+
+	public void setTauxRemuneration(String tauxRemuneration) {
+		this.tauxRemuneration = tauxRemuneration;
+	}
+	
 	//toString
 	/**
 	 * Redefinition du toString de la classe abstraite Compte
@@ -31,6 +41,8 @@ public class CompteEpargne extends Compte {
 				+ " % , solde=" + solde
 				+ ", dateOuverture=" + dateOuverture + "\n";
 	}
+
+
 
 
 }
