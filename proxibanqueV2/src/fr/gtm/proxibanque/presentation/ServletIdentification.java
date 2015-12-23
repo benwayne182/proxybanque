@@ -17,7 +17,6 @@ import fr.gtm.proxibanque.metier.Conseiller;
 import fr.gtm.proxibanque.service.IServiceClient;
 import fr.gtm.proxibanque.service.IServiceConseiller;
 import fr.gtm.proxibanque.service.ServiceClient;
-import fr.gtm.proxibanque.service.UserService;
 
 
 /**
@@ -57,18 +56,18 @@ public class ServletIdentification extends HttpServlet {
 
 
 		//Soumettre les parametres de la requete a la couche service
-		UserService log = new UserService(login,pwd);
+		
 		HttpSession maSession = request.getSession();
 
 
 		//Reponse a l'utilisateur
-		//ServiceConseiller scons = new ServiceConseiller();
-		Conseiller cons=scons.lireConseiller(log.getId(), log.getPassword());
+		
+		Conseiller cons=scons.lireConseiller(login,pwd);
 		maSession.setAttribute("consdao", cons);
 		RequestDispatcher dispatcher;
 
 		if((login.equalsIgnoreCase(cons.getIdentifiant()))&&(pwd.equalsIgnoreCase(cons.getPwd()))){
-			//ServiceClient sclient = new ServiceClient();
+			
 			ArrayList<Client> listeclient = sclient.lireClients(cons.getIdConseiller());
 			maSession.setAttribute("listeclient", listeclient);
 			dispatcher=request.getRequestDispatcher("resultId.jsp");
