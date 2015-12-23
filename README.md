@@ -48,7 +48,7 @@ Les tables sont à présent créées et prêtes à être utilisées par les empl
 1. Démarrer le serveur d'application Tomcat
 2. Glisser le livrable (fichier avec extension *.war) dans répertoire Webapps du dossier d'installation de Tomcat
 3. Une fois l'application déployée, un dossier au nom du fichier war est visible dans le répertoire Webapps.
-4. Démarrer le navigateur, rentrer l'adresse suivante <http://localhost:8080/proxibanquev2/>
+4. Démarrer le navigateur, rentrer l'adresse suivante <http://localhost:8080/proxibanqueV2/>
 5. Vous êtes à présent sur la page d'accueil de l'application.
 
 ###Fonctionnalités de l'application
