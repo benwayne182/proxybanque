@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.gtm.proxibanque.metier.Client;
 import fr.gtm.proxibanque.metier.Conseiller;
+import fr.gtm.proxibanque.service.IServiceClient;
 import fr.gtm.proxibanque.service.IServiceConseiller;
 import fr.gtm.proxibanque.service.ServiceClient;
 import fr.gtm.proxibanque.service.UserService;
@@ -29,6 +30,7 @@ public class ServletIdentification extends HttpServlet {
 	
 	@Inject
 	IServiceConseiller scons;
+	@Inject IServiceClient sclient;
 	/**
 	 * Default constructor. 
 	 */
@@ -66,7 +68,7 @@ public class ServletIdentification extends HttpServlet {
 		RequestDispatcher dispatcher;
 
 		if((login.equalsIgnoreCase(cons.getIdentifiant()))&&(pwd.equalsIgnoreCase(cons.getPwd()))){
-			ServiceClient sclient = new ServiceClient();
+			//ServiceClient sclient = new ServiceClient();
 			ArrayList<Client> listeclient = sclient.lireClients(cons.getIdConseiller());
 			maSession.setAttribute("listeclient", listeclient);
 			dispatcher=request.getRequestDispatcher("resultId.jsp");

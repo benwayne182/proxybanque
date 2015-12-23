@@ -2,12 +2,15 @@ package fr.gtm.proxibanque.service;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import fr.gtm.proxibanque.dao.ClientDao;
+import fr.gtm.proxibanque.dao.IClientdao;
 import fr.gtm.proxibanque.metier.Client;
 
 public class ServiceClient implements IServiceClient {
 
-	ClientDao clientdao = new ClientDao();
+	@Inject IClientdao clientdao; //= new ClientDao();
 
 	//constructeur
 	public ServiceClient() {
