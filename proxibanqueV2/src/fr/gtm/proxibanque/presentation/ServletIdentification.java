@@ -3,6 +3,7 @@ package fr.gtm.proxibanque.presentation;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +14,8 @@ import javax.servlet.http.HttpSession;
 
 import fr.gtm.proxibanque.metier.Client;
 import fr.gtm.proxibanque.metier.Conseiller;
+import fr.gtm.proxibanque.service.IServiceConseiller;
 import fr.gtm.proxibanque.service.ServiceClient;
-import fr.gtm.proxibanque.service.ServiceConseiller;
 import fr.gtm.proxibanque.service.UserService;
 
 
@@ -25,6 +26,9 @@ import fr.gtm.proxibanque.service.UserService;
 public class ServletIdentification extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
+	@Inject
+	IServiceConseiller scons;
 	/**
 	 * Default constructor. 
 	 */
@@ -56,7 +60,7 @@ public class ServletIdentification extends HttpServlet {
 
 
 		//Reponse a l'utilisateur
-		ServiceConseiller scons = new ServiceConseiller();
+		//ServiceConseiller scons = new ServiceConseiller();
 		Conseiller cons=scons.lireConseiller(log.getId(), log.getPassword());
 		maSession.setAttribute("consdao", cons);
 		RequestDispatcher dispatcher;

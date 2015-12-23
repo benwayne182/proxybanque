@@ -1,12 +1,14 @@
 package fr.gtm.proxibanque.service;
 
+import javax.inject.Inject;
+
 import fr.gtm.proxibanque.dao.CompteEpargneDao;
 import fr.gtm.proxibanque.metier.CompteEpargne;
 
 public class ServiceCompteEpargne implements IServiceCompteEpargne{
 
-	
-	CompteEpargneDao cedao = new CompteEpargneDao();
+	@Inject
+	CompteEpargneDao cedao;
 
 	public void creerCompte(String idclient, String dateOuverture, String solde, String tauxRemuneration) {
 		cedao.creerCompte(idclient, dateOuverture, solde, tauxRemuneration);

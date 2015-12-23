@@ -2,6 +2,7 @@ package fr.gtm.proxibanque.presentation;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.gtm.proxibanque.service.ServiceCompteCourant;
+import fr.gtm.proxibanque.service.IServiceCompteCourant;
 
 /**
  * Servlet implementation class ServletCompteCourant
@@ -18,6 +19,7 @@ import fr.gtm.proxibanque.service.ServiceCompteCourant;
 public class ServletCompteCourant extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	@Inject IServiceCompteCourant scc;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -54,7 +56,6 @@ public class ServletCompteCourant extends HttpServlet {
 
 
 		//Soumettre les parametres de la requete a la couche service
-		ServiceCompteCourant scc = new ServiceCompteCourant();
 		scc.creerCompte(idclient, dateouv, solde, decouvert, statut);
 
 		//Reponse a l'utilisateur

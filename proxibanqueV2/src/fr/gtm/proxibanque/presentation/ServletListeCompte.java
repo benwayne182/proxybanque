@@ -2,6 +2,7 @@ package fr.gtm.proxibanque.presentation;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,8 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import fr.gtm.proxibanque.metier.CompteCourant;
 import fr.gtm.proxibanque.metier.CompteEpargne;
-import fr.gtm.proxibanque.service.ServiceCompteCourant;
-import fr.gtm.proxibanque.service.ServiceCompteEpargne;
+import fr.gtm.proxibanque.service.IServiceCompteCourant;
+import fr.gtm.proxibanque.service.IServiceCompteEpargne;
 
 /**
  * Servlet implementation class ServletListeCompte
@@ -22,6 +23,10 @@ import fr.gtm.proxibanque.service.ServiceCompteEpargne;
 public class ServletListeCompte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	@Inject
+	IServiceCompteCourant ccdao2;
+	@Inject
+	IServiceCompteEpargne cedao2;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -53,8 +58,6 @@ public class ServletListeCompte extends HttpServlet {
 
 
 		//Soumettre les parametres de la requete a la couche service
-		ServiceCompteCourant ccdao2 = new ServiceCompteCourant();
-		ServiceCompteEpargne cedao2 = new ServiceCompteEpargne();
 		CompteCourant ccdao = ccdao2.lireCompte(idclient);
 		CompteEpargne cedao = cedao2.lireCompte(idclient);
 		HttpSession maSession = request.getSession();

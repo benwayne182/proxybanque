@@ -1,11 +1,14 @@
 package fr.gtm.proxibanque.service;
 
+import javax.inject.Inject;
+
 import fr.gtm.proxibanque.dao.CompteCourantDao;
 import fr.gtm.proxibanque.metier.CompteCourant;
 
 public class ServiceCompteCourant implements IServiceCompteCourant{
 
-	CompteCourantDao ccdao = new CompteCourantDao();
+	@Inject
+	CompteCourantDao ccdao;
 
 
 	public void creerCompte(String idclient, String dateOuverture, String solde, String decouvert, String statut) {

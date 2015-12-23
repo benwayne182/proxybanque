@@ -1,12 +1,15 @@
 package fr.gtm.proxibanque.service;
 
+import javax.inject.Inject;
+
 import fr.gtm.proxibanque.dao.ConseillerDao;
 import fr.gtm.proxibanque.metier.Conseiller;
 
 public class ServiceConseiller implements IServiceConseiller{
 
 
-	ConseillerDao consdao = new ConseillerDao();
+	@Inject
+	ConseillerDao consdao;
 
 	//Constructeur
 	public ServiceConseiller() {

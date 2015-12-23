@@ -2,13 +2,15 @@ package fr.gtm.proxibanque.presentation;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import fr.gtm.proxibanque.service.ServiceConseiller;
+
+import fr.gtm.proxibanque.service.IServiceConseiller;
 
 /**
  * Servlet implementation class ServletVirement
@@ -17,6 +19,8 @@ import fr.gtm.proxibanque.service.ServiceConseiller;
 public class ServletVirement extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Inject
+	IServiceConseiller scons;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -47,7 +51,6 @@ public class ServletVirement extends HttpServlet {
 
 
 		//Soumettre les parametres de la requete a la couche service
-		ServiceConseiller scons = new ServiceConseiller();
 		int numdebI = Integer.parseInt(numdeb);
 		int numcredI = Integer.parseInt(numcred);
 		Float montantF = Float.parseFloat(montant);
