@@ -20,7 +20,7 @@ import fr.gtm.proxibanque.metier.Conseiller;
  * @version 2.0
  *
  */
-public class ConseillerDao {
+public class ConseillerDao implements IConseillerDao{
 
 	/**
 	 * Méthode de création d'un nouveau conseiller. Les arguments de la méthode sont récupéreés des paramètres issus de la saisie du formulaire de création conseiller. 

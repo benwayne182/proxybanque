@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 import fr.gtm.proxibanque.metier.CompteCourant;
 
-public class CompteCourantDao{
+public class CompteCourantDao implements ICompteCourantDao{
 
 
 	//constructeur(vide)

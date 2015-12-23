@@ -15,7 +15,7 @@ import fr.gtm.proxibanque.metier.Client;
  * @author BS, ML
  *
  */
-public class ClientDao {
+public class ClientDao implements IClientdao{
  //constructeur
 
 	/**
