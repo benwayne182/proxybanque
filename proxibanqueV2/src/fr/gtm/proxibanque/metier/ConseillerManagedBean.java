@@ -21,19 +21,19 @@ public class ConseillerManagedBean implements Serializable{
 	
 	@Inject ServiceConseiller scons;
 	
-	private String login;
+	private String id;
 	private String pwd;
 	
 	
 	//setters & getters
-	public String getLogin() {
-		return login;
+	public String getId() {
+		return id;
 	}
 
 
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setId(String login) {
+		this.id = login;
 	}
 
 
@@ -52,9 +52,9 @@ public class ConseillerManagedBean implements Serializable{
 
 	public String login()
 	{
-		if("test".equalsIgnoreCase(getLogin()) && "test".equals(getPwd()))
+		if("test".equalsIgnoreCase(getId()) && "test".equals(getPwd()))
 		{
-			return "resultId";
+			return "login2";
 		}
 		else
 		{
