@@ -21,6 +21,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cdi-api.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/weld-se.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/weld-servlet.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.faces-2.1.14.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_65">
 		<attributes>
