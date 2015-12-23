@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.inject.Inject;
+
 import fr.gtm.proxibanque.metier.CompteCourant;
 import fr.gtm.proxibanque.metier.CompteEpargne;
 import fr.gtm.proxibanque.metier.Conseiller;
@@ -30,6 +32,12 @@ public class ConseillerDao implements IConseillerDao{
 	 * @param identifiant
 	 * @param pwd
 	 */
+	
+	@Inject
+	CompteCourantDao ccdao;
+	@Inject
+	CompteEpargneDao cedao;
+	
 	public void creerConseiller(String nom,	String prenom,	String identifiant,	String pwd){
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
@@ -145,8 +153,6 @@ public class ConseillerDao implements IConseillerDao{
 		CompteEpargne ced= new CompteEpargneDao().findCompte(numcompteD);
 		CompteCourant ccc= new CompteCourantDao().findCompte(numcompteC);
 		CompteEpargne cec= new CompteEpargneDao().findCompte(numcompteC);
-		CompteCourantDao ccdao = new CompteCourantDao();
-		CompteEpargneDao cedao = new CompteEpargneDao();
 
 		if (ccd.getSolde()!=null) {
 			if (ccc.getSolde()!=null) {
