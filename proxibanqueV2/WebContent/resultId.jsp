@@ -1,3 +1,4 @@
+<%@page import="fr.gtm.proxibanque.metier.ConseillerManagedBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="fr.gtm.proxibanque.dao.ClientDao"%>
@@ -36,7 +37,6 @@
 
 
 	<%
-		Conseiller l = (Conseiller) session.getAttribute("consdao");
 		ArrayList<Client> listeclient = (ArrayList<Client>) session.getAttribute("listeclient");
 	%>
 	<h1>Liste de vos clients</h1>

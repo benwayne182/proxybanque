@@ -2,6 +2,7 @@ package fr.gtm.proxibanque.presentation;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.gtm.proxibanque.service.ServiceClient;
+import fr.gtm.proxibanque.service.IServiceClient;
 
 /**
  * Servlet implementation class ServletModifClient
@@ -19,6 +20,8 @@ import fr.gtm.proxibanque.service.ServiceClient;
 public class ServletModifClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	@Inject
+	IServiceClient sclient;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -57,7 +60,6 @@ public class ServletModifClient extends HttpServlet {
 		
 
 		//Soumettre les parametres de la requete a la couche service
-		ServiceClient sclient = new ServiceClient();
 		sclient.modifClient(idclient, nom, prenom, adresse, codepostal, ville, email, idcons);
 		HttpSession maSession = request.getSession();
 		maSession.setAttribute("cdao", sclient);

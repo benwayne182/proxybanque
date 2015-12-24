@@ -37,6 +37,8 @@ public class ConseillerDao implements IConseillerDao{
 	CompteCourantDao ccdao;
 	@Inject
 	CompteEpargneDao cedao;
+	/*CompteCourantDao ccdao = new CompteCourantDao();
+	CompteEpargneDao cedao = new CompteEpargneDao();*/
 	
 	public void creerConseiller(String nom,	String prenom,	String identifiant,	String pwd){
 		//informations acces bdd

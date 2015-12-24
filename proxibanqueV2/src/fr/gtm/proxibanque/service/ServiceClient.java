@@ -18,6 +18,8 @@ public class ServiceClient implements IServiceClient {
 
 	@Inject IClientdao clientdao; 
 
+	//ClientDao clientdao = new ClientDao();
+	
 	//constructeur
 	public ServiceClient() {
 

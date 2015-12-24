@@ -12,8 +12,7 @@ import fr.gtm.proxibanque.metier.CompteCourant;
  */
 public class ServiceCompteCourant implements IServiceCompteCourant{
 
-	@Inject
-	CompteCourantDao ccdao;
+	@Inject	CompteCourantDao ccdao;
 
 	//constructeur
 	public ServiceCompteCourant() {

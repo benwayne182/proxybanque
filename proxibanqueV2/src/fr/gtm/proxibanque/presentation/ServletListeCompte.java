@@ -15,6 +15,8 @@ import fr.gtm.proxibanque.metier.CompteCourant;
 import fr.gtm.proxibanque.metier.CompteEpargne;
 import fr.gtm.proxibanque.service.IServiceCompteCourant;
 import fr.gtm.proxibanque.service.IServiceCompteEpargne;
+import fr.gtm.proxibanque.service.ServiceCompteCourant;
+import fr.gtm.proxibanque.service.ServiceCompteEpargne;
 
 /**
  * Servlet implementation class ServletListeCompte
@@ -27,6 +29,9 @@ public class ServletListeCompte extends HttpServlet {
 	IServiceCompteCourant ccdao2;
 	@Inject
 	IServiceCompteEpargne cedao2;
+	/*ServiceCompteCourant ccdao2= new ServiceCompteCourant();
+	ServiceCompteEpargne cedao2= new ServiceCompteEpargne();*/
+	
     /**
      * @see HttpServlet#HttpServlet()
      */

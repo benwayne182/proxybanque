@@ -23,6 +23,7 @@ public class ServletLireClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@Inject IServiceClient sclient;
+	//ServiceClient sclient = new ServiceClient();
 
 	/**
 	 * @see HttpServlet#HttpServlet()

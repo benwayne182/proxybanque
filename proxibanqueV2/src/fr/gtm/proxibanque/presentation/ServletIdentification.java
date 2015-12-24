@@ -17,6 +17,7 @@ import fr.gtm.proxibanque.metier.Conseiller;
 import fr.gtm.proxibanque.service.IServiceClient;
 import fr.gtm.proxibanque.service.IServiceConseiller;
 import fr.gtm.proxibanque.service.ServiceClient;
+import fr.gtm.proxibanque.service.ServiceConseiller;
 
 
 /**
@@ -30,6 +31,8 @@ public class ServletIdentification extends HttpServlet {
 	@Inject
 	IServiceConseiller scons;
 	@Inject IServiceClient sclient;
+	/*ServiceConseiller scons = new ServiceConseiller();
+	ServiceClient sclient = new ServiceClient();*/
 	/**
 	 * Default constructor. 
 	 */

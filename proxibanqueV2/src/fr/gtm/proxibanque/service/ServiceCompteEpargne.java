@@ -11,8 +11,7 @@ import fr.gtm.proxibanque.metier.CompteEpargne;
  */
 public class ServiceCompteEpargne implements IServiceCompteEpargne{
 
-	@Inject
-	CompteEpargneDao cedao;
+	@Inject CompteEpargneDao cedao;
 
 	//constructeur
 	public ServiceCompteEpargne() {
