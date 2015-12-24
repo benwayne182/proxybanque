@@ -8,6 +8,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+import fr.gtm.proxibanque.service.IServiceConseiller;
 import fr.gtm.proxibanque.service.ServiceConseiller;
 
 @ManagedBean
@@ -19,7 +20,8 @@ public class ConseillerManagedBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Inject ServiceConseiller scons;
+	//@Inject IServiceConseiller scons;
+	ServiceConseiller scons =new ServiceConseiller();
 	
 	private String id;
 	private String pwd;
@@ -48,11 +50,9 @@ public class ConseillerManagedBean implements Serializable{
 		this.pwd = pwd;
 	}
 
-
-
 	public String login()
 	{
-		if("test".equalsIgnoreCase(getId()) && "test".equals(getPwd()))
+		if(getId().equalsIgnoreCase(scons.lireConseiller(id, pwd).getIdentifiant()) && getPwd().equals(scons.lireConseiller(id, pwd).getPwd()))
 		{
 			return "login2";
 		}

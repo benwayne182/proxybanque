@@ -13,8 +13,9 @@ import fr.gtm.proxibanque.metier.Conseiller;
 public class ServiceConseiller implements IServiceConseiller{
 
 
-	@Inject
-	ConseillerDao consdao;
+	//@Inject	ConseillerDao consdao;
+	ConseillerDao consdao = new ConseillerDao();
+			
 
 	//Constructeur
 	public ServiceConseiller() {
