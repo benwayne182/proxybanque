@@ -85,7 +85,7 @@ public class ConseillerManagedBean implements Serializable{
 	{
 		if(getId().equalsIgnoreCase(scons.lireConseiller(id, pwd).getIdentifiant()) && getPwd().equals(scons.lireConseiller(id, pwd).getPwd()))
 		{
-			return "login2";
+			return "resultId";
 		}
 		else
 		{
