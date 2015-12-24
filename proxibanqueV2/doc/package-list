@@ -1,5 +1,5 @@
 fr.gtm.proxibanque.dao
-fr.gtm.proxibanque.lanceur
 fr.gtm.proxibanque.metier
 fr.gtm.proxibanque.presentation
 fr.gtm.proxibanque.service
+fr.gtm.proxibanque.test

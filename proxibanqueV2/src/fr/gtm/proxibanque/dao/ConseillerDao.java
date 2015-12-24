@@ -24,6 +24,14 @@ import fr.gtm.proxibanque.metier.Conseiller;
  */
 public class ConseillerDao implements IConseillerDao{
 
+	
+	
+	@Inject
+	CompteCourantDao ccdao;
+	@Inject
+	CompteEpargneDao cedao;
+	/*CompteCourantDao ccdao = new CompteCourantDao();
+	CompteEpargneDao cedao = new CompteEpargneDao();*/
 	/**
 	 * Méthode de création d'un nouveau conseiller. Les arguments de la méthode sont récupéreés des paramètres issus de la saisie du formulaire de création conseiller. 
 	 * 
@@ -32,14 +40,6 @@ public class ConseillerDao implements IConseillerDao{
 	 * @param identifiant
 	 * @param pwd
 	 */
-	
-	@Inject
-	CompteCourantDao ccdao;
-	@Inject
-	CompteEpargneDao cedao;
-	/*CompteCourantDao ccdao = new CompteCourantDao();
-	CompteEpargneDao cedao = new CompteEpargneDao();*/
-	
 	public void creerConseiller(String nom,	String prenom,	String identifiant,	String pwd){
 		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
