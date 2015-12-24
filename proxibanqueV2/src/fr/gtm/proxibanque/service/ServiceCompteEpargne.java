@@ -4,7 +4,11 @@ import javax.inject.Inject;
 
 import fr.gtm.proxibanque.dao.CompteEpargneDao;
 import fr.gtm.proxibanque.metier.CompteEpargne;
-
+/**
+ * Classe d'implementation des méthodes de l'interface {@link fr.gtm.proxibanque.service.IServiceCompteEpargne}
+ * @author Adminl
+ *
+ */
 public class ServiceCompteEpargne implements IServiceCompteEpargne{
 
 	@Inject

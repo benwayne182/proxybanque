@@ -5,6 +5,11 @@ import javax.inject.Inject;
 import fr.gtm.proxibanque.dao.ConseillerDao;
 import fr.gtm.proxibanque.metier.Conseiller;
 
+/**
+ * Implementation de {@link fr.gtm.proxibanque.service.IServiceConseiller}
+ * @author Adminl
+ *
+ */
 public class ServiceConseiller implements IServiceConseiller{
 
 
