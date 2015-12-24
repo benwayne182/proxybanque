@@ -10,9 +10,9 @@ package fr.gtm.proxibanque.metier;
  */
 public class Conseiller extends Personne{
 	//proprietes
-	protected int idConseiller;
-	protected String identifiant;
-	protected String pwd;
+	private int idConseiller;
+	private String identifiant;
+	private String pwd;
 	
 
 	//getters setters

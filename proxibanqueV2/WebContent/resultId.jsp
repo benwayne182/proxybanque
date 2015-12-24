@@ -89,7 +89,7 @@
 	<br>
 
 	<ul>
-		<li><a href="creation_client.jsp" class="btn btn-info"
+		<li><a href="creaClient.jsp" class="btn btn-info"
 			role="button">Créer un client</a></li>
 	</ul>
 		<ul>

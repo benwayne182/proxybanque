@@ -16,9 +16,9 @@ import fr.gtm.proxibanque.metier.Client;
 
 public class ServiceClient implements IServiceClient {
 
-	@Inject IClientdao clientdao; 
+	//@Inject IClientdao clientdao; 
 
-	//ClientDao clientdao = new ClientDao();
+	ClientDao clientdao = new ClientDao();
 	
 	//constructeur
 	public ServiceClient() {

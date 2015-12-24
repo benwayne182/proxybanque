@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -8,68 +7,44 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Creation Client</title>
+	<title>Création Client</title>
 </h:head>
-
-
 <h:body>
-
-<ui:composition template="/template/layout.xhtml">
+	<ui:composition template="/template/layout.xhtml">
 
 		<ui:define name="content">
+			<center>
+				<p:panel header="Formulaire de création de client" style="width: 350;">
+					<h:form>
 
-<h:form action="redirectCreaClient" method="post" accept-charset="UTF-8"
-		autocomplete="on">
-		<p:fieldset>
-		<h:panelGrid columns="1" width="550" border="2">
+						<h:panelGrid columns="2" cellpadding="2">
+							<h:outputLabel for="#{clientManagedBean.nom}" value="Nom" />
+							<h:inputText value="#{clientManagedBean.nom}" label="nom" required="true"></h:inputText>
+							<h:outputLabel for="#{clientManagedBean.prenom}" value="Prénom" />
+							<h:inputText value="#{clientManagedBean.prenom}" label="prenom" required="true"></h:inputText>
+							<h:outputLabel for="#{clientManagedBean.adresse}" value="Adresse" />
+							<h:inputText value="#{clientManagedBean.adresse}" label="adresse" required="true"></h:inputText>
+							<h:outputLabel for="#{clientManagedBean.codePostal}" value="Code Postal" />
+							<h:inputText value="#{clientManagedBean.codePostal}" label="codePostal" required="true"></h:inputText>
+							<h:outputLabel for="#{clientManagedBean.ville}" value="Ville" />
+							<h:inputText value="#{clientManagedBean.ville}" label="ville" required="true"></h:inputText>
+							<h:outputLabel for="#{clientManagedBean.telephone}" value="Telephone" />
+							<h:inputText value="#{clientManagedBean.telephone}" label="telephone" required="true"></h:inputText>
+							<h:outputLabel for="#{clientManagedBean.email}" value="Mail" />
+							<h:inputText value="#{clientManagedBean.email}" label="email" required="true"></h:inputText>
+							<h:outputLabel for="#{clientManagedBean.idcons}"/>
+							<h:inputText value="#{sessionScope.conseillerManagedBean.id}" label="idcons" />
 
-  <h:outputLabel value="Nom:" />
-    <p:inputText value="#{clientManagedBean.nom}" 
-       id="nom"
-        required="true" 
-        requiredMessage="Champ requis"
-          >
-   </p:inputText>
-
-<h:outputLabel value="Prénom:" />
-    <p:inputText value="#{clientManagedBean.prenom}" 
-       id="prenom"
-        required="true" 
-        requiredMessage="Champ requis"
-          >
-   </p:inputText>
-   <h:outputLabel value="Adresse:" />
-    <p:inputText value="#{clientManagedBean.adresse}" 
-       id="prenom">
-   </p:inputText>
-   
-     <h:outputLabel value="Code Postal" />
-    <p:inputText value="#{clientManagedBean.codePostal}" 
-       id="codePostal"
-         validatorMessage="5 caractères"
-        >
-     <f:validateLength minimum="5" maximum="5" for="codePostal"></f:validateLength>
-    </p:inputText>
-
- <h:outputLabel value="Ville" />
-    <p:inputText value="#{clientManagedBean.ville}" 
-       id="ville">
-   </p:inputText>
-<h:outputLabel value="Telephone" />
-    <p:inputText value="#{clientManagedBean.telephone}" 
-       id="telelphone">
-   </p:inputText>
-<h:outputLabel value="E-mail" />
-    <p:inputText value="#{clientManagedBean.email}" 
-       id="email">
-   </p:inputText>
-   <p:inputHidden value="#{}" />
-     <p:commandButton value="Creer" action="#{clientManagedBean.creerClient}" styleClass="ui-priority-primary"></p:commandButton>
-</h:panelGrid>
-</p:fieldset>
-</h:form>
-</ui:define>
+							<h:commandButton type="submit" value="Valider"
+								action="#{clientManagedBean.creerClient}"></h:commandButton>
+						</h:panelGrid>
+					</h:form>
+				</p:panel>
+				<div>
+					<h:messages></h:messages>
+				</div>
+			</center>
+		</ui:define>
 	</ui:composition>
 </h:body>
-
 </html>

@@ -28,11 +28,10 @@ public class ServletIdentification extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
-	@Inject
-	IServiceConseiller scons;
-	@Inject IServiceClient sclient;
-	/*ServiceConseiller scons = new ServiceConseiller();
-	ServiceClient sclient = new ServiceClient();*/
+	//@Inject	IServiceConseiller scons;
+	//@Inject IServiceClient sclient;
+	ServiceConseiller scons = new ServiceConseiller();
+	ServiceClient sclient = new ServiceClient();
 	/**
 	 * Default constructor. 
 	 */

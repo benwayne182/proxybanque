@@ -10,8 +10,8 @@ package fr.gtm.proxibanque.metier;
 public class CompteCourant extends Compte {
 
 	//proprietes
-	protected String decouvert;
-	protected String statut;
+	private String decouvert;
+	private String statut;
 
 	//constructeur
 	/**

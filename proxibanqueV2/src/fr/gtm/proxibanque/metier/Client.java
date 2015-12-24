@@ -11,13 +11,13 @@ public class Client extends Personne{
 	/**
 	 * Propriétés (toutes de type String): numéro identifiant, adresse, code postale, telephone, email, numéro idéntifiant du conseiller associé 
 	 */
-	protected String id; 
-	protected String adresse;
-	protected String codePostal ;
-	protected String ville ;
-	protected String telephone ;
-	protected String email;
-	protected String idconseiller;
+	private String id; 
+	private String adresse;
+	private String codePostal ;
+	private String ville ;
+	private String telephone ;
+	private String email;
+	private String idconseiller;
 
 
 	//constructeur

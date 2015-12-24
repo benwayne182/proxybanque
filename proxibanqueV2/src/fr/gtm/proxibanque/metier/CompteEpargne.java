@@ -10,7 +10,7 @@ public class CompteEpargne extends Compte {
 
 
 	//Proprietes
-	protected String tauxRemuneration;
+	private String tauxRemuneration;
 
 	//Constructeur
 /**

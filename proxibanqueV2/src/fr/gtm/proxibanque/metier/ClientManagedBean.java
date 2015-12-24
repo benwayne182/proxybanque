@@ -5,6 +5,7 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import fr.gtm.proxibanque.service.IServiceClient;
+import fr.gtm.proxibanque.service.ServiceClient;
 
 @ManagedBean
 @ViewScoped
@@ -20,7 +21,8 @@ public class ClientManagedBean {
 	private String idcons;
 	
 	
-	@Inject IServiceClient sclient;
+	//@Inject IServiceClient sclient;
+	ServiceClient sclient = new ServiceClient();
 	
 	public ClientManagedBean() {
 		
@@ -68,6 +70,12 @@ public class ClientManagedBean {
 		this.email = email;
 	}
 	
+	public String getIdcons() {
+		return idcons;
+	}
+	public void setIdcons(String idcons) {
+		this.idcons = idcons;
+	}
 	public String creerClient() {
 		sclient.creerClient(nom, prenom, adresse, codePostal, ville, telephone, email, idcons);
 		return "";
