@@ -5,6 +5,11 @@ import javax.inject.Inject;
 import fr.gtm.proxibanque.dao.CompteCourantDao;
 import fr.gtm.proxibanque.metier.CompteCourant;
 
+/**
+ * Implementation de l'interface {@link fr.gtm.proxibanque.service.IServiceCompteCourant}
+ * @author Adminl
+ *
+ */
 public class ServiceCompteCourant implements IServiceCompteCourant{
 
 	@Inject

@@ -8,9 +8,15 @@ import fr.gtm.proxibanque.dao.ClientDao;
 import fr.gtm.proxibanque.dao.IClientdao;
 import fr.gtm.proxibanque.metier.Client;
 
+/**
+ * Implementation des méthodes de l'interface {@link fr.gtm.proxibanque.service.IServiceClient}
+ * @author Adminl
+ *
+ */
+
 public class ServiceClient implements IServiceClient {
 
-	@Inject IClientdao clientdao; //= new ClientDao();
+	@Inject IClientdao clientdao; 
 
 	//constructeur
 	public ServiceClient() {
