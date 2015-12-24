@@ -1,4 +1,3 @@
-<%@page import="fr.gtm.proxibanque.metier.ConseillerManagedBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="fr.gtm.proxibanque.dao.ClientDao"%>
