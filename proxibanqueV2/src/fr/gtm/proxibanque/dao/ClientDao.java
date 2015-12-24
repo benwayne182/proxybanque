@@ -11,22 +11,17 @@ import java.util.ArrayList;
 
 import fr.gtm.proxibanque.metier.Client;
 /**
+ * Classe des méthodes de manipulation des données (objets de type Client {@link fr.gtm.proxibanque.metier.Client})
+ * @author BS, MT
+ * Implemente l'interface IClientdao {@link fr.gtm.proxibanque.dao.IClientdao}.
+ * Chaque méthode prevoit la connexion à la base des données, avec les définitions de l'url de la base, le nom d'utilisateur et le mot de passe.
  * 
- * @author BS, ML
- *
  */
 public class ClientDao implements IClientdao{
- //constructeur
+
 
 	/**
-	 * @param nom
-	 * @param pre
-	 * @param adresse
-	 * @param codep
-	 * @param ville
-	 * @param tel
-	 * @param mail
-	 * @param idcons
+	 * Creation d'un client dans la base des données. Prends en argument toutes les propriétés de la classe {@link fr.gtm.proxibanque.metier.Client}
 	 */
 	public void creerClient(String nom,	String pre,	String adresse,	String codep, String ville, String tel, String mail, String idcons){
 
@@ -81,8 +76,9 @@ public class ClientDao implements IClientdao{
 
 
 	/**
-	 * @param idconseiller
-	 * @return
+	 * Lire les clients associés à un conseiller, identifié par un numéro indentifiant idconseiller
+	 * @param idconseiller numéro identification du conseiller
+	 * @return arraylist des objets Client
 	 */
 	public ArrayList<Client> lireClients(int idconseiller){
 
@@ -148,8 +144,9 @@ public class ClientDao implements IClientdao{
 	}
 
 	/**
+	 * Lire un Client à partir de son numéro d'identification
 	 * @param idclient
-	 * @return
+	 * @return objet Client
 	 */
 	public Client lireClient(String idclient){
 
@@ -206,6 +203,7 @@ public class ClientDao implements IClientdao{
 
 	}
 	/**
+	 * Modification d'un objet Client dans la base des données
 	 * @param idclient
 	 * @param nom
 	 * @param pre
@@ -265,6 +263,7 @@ public class ClientDao implements IClientdao{
 	}
 
 	/**
+	 * Suppression d'un client de la base
 	 * @param idclient
 	 */
 	public void supprClient(String idclient){
