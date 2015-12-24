@@ -13,7 +13,11 @@ import org.junit.Test;
 
 import fr.gtm.proxibanque.dao.ConseillerDao;
 import fr.gtm.proxibanque.metier.Conseiller;
-
+/**
+ * Classe de test de DAO du conseiller
+ * @author Adminl
+ *
+ */
 public class ConseillerDaoTest{
 
 	ConseillerDao consdao;
@@ -21,6 +25,9 @@ public class ConseillerDaoTest{
 	Connection cn =null;
 	ResultSet rs = null;
 
+	/**
+	 * Initialization
+	 */
 	@Before public void initialize() {
 
 		consdao = new ConseillerDao();
@@ -28,6 +35,9 @@ public class ConseillerDaoTest{
 
 	}
 
+	/**
+	 * Connection à la base des données: coordonnées du pilote, login et mot de passe
+	 */
 	@Before public void testConnection() {
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
 		String login="ben";
@@ -47,21 +57,33 @@ public class ConseillerDaoTest{
 		}
 	}
 
+	/**
+	 * tester si la connection existe
+	 */
 	@Test public void testConnectionNotNull() {
 		Assert.assertNotNull(cn);
 
 	}
 
+	/**
+	 * Test de la méthode lire un conseiller
+	 */
 	@Test public void testRead() {
 		Conseiller cons=consdao.lireConseiller("ben", "ben");
 		Assert.assertThat(cons, IsInstanceOf.instanceOf(Conseiller.class));
 
 	}
 
+	/**
+	 * Test de la methode effectuer un virement
+	 */
 	@Test public void virementTest() {
 		consdao.virement(1,2, 500);
 	}
 
+	/**
+	 * Se deconnecter
+	 */
 	@After public void closeConnection() {
 		try {
 			//Etape 5: fermer connec
