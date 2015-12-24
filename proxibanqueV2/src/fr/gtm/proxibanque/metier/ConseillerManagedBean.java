@@ -25,6 +25,8 @@ public class ConseillerManagedBean implements Serializable{
 	
 	private String id;
 	private String pwd;
+	private String nom;
+	private String prenom;
 	
 	
 	//setters & getters
@@ -48,6 +50,35 @@ public class ConseillerManagedBean implements Serializable{
 
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+
+	public String creaConseiller() {
+		scons.creerConseiller(nom, prenom, id, pwd);
+		return "login";
+		
 	}
 
 	public String login()

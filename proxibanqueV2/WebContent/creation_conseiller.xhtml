@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Création Conseiller</title>
+</h:head>
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+
+		<ui:define name="content">
+			<center>
+				<p:panel header="Formulaire de création de conseiller" style="width: 350;">
+					<h:form>
+
+						<h:panelGrid columns="2" cellpadding="2">
+							<h:outputLabel for="#{conseillerManagedBean.nom}" value="Nom" />
+							<h:inputText value="#{conseillerManagedBean.nom}" label="nom" required="true"></h:inputText>
+							<h:outputLabel for="#{conseillerManagedBean.prenom}" value="Prénom" />
+							<h:inputText value="#{conseillerManagedBean.prenom}" label="prenom" required="true"></h:inputText>
+							<h:outputLabel for="#{conseillerManagedBean.id}" value="Login" />
+							<h:inputText value="#{conseillerManagedBean.id}" label="login" required="true"></h:inputText>
+							<h:outputLabel for="#{conseillerManagedBean.pwd}" value="Mot de passe" />
+							<h:inputSecret value="#{conseillerManagedBean.pwd}" required="true"></h:inputSecret>
+
+							<h:commandButton type="submit" value="Valider"
+								action="#{conseillerManagedBean.creaConseiller}"></h:commandButton>
+						</h:panelGrid>
+					</h:form>
+				</p:panel>
+				<div>
+					<h:messages></h:messages>
+				</div>
+			</center>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
