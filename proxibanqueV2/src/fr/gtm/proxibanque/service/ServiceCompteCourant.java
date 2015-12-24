@@ -15,7 +15,10 @@ public class ServiceCompteCourant implements IServiceCompteCourant{
 	@Inject
 	CompteCourantDao ccdao;
 
-
+	//constructeur
+	public ServiceCompteCourant() {
+		
+	}
 	public void creerCompte(String idclient, String dateOuverture, String solde, String decouvert, String statut) {
 		ccdao.creerCompte(idclient, dateOuverture, solde, decouvert, statut);
 
