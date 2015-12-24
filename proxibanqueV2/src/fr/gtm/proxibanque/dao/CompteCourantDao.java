@@ -7,12 +7,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 import fr.gtm.proxibanque.metier.CompteCourant;
+
+/**
+ * Classe des méthodes Dao des objets de type CompteCourant
+ * Implemente l'interface {@link fr.gtm.proxibanque.dao.ICompteCourantDao}
+ */
 
 public class CompteCourantDao implements ICompteCourantDao{
 
 
-	//constructeur(vide)
+	/**
+	 * Constructeur sans arguments
+	 */
 	public CompteCourantDao() {
 
 	}
