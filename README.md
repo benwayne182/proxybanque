@@ -1,6 +1,6 @@
 # proxibanque
 
-##Description V2
+##Description V3
 Le conseiller s'identifie grâce à son login et mot de passe. Une fois l'identification réussie s'affiche sa liste de clients. Une erreur d'identification envoie un message d'erreur et le conseiller est invité à renseigner de nouveau ses identifiants.
 La liste de clients affiche pour chaque client le numéro client qui lui est affecté, son nom et son prénom.
 Options à la disposition du conseiller pour chaque client :
@@ -17,38 +17,39 @@ Une fois le compte créé, le conseiller est redirigé vers son écran d'accueil
 ##Documentation
 Veuillez suivre les indications suivantes:
 
-1. Ouvrez le dossier *proxibanqueV2*.
+1. Ouvrez le dossier *proxibanque*.
 2. Ouvrez le dossier *doc*.
 3. Double cliquez sur *index.html*.
 
 ##Guide de l'utilisateur
 ###Installation de l'application
-
-####Database oracle
-L'application s'installe sur un poste ayant accès à une base de données ORACLE version 11.
+L'application s'installe sur un poste ayant accès à une base de données ORACLE version 11 et le serveur d'application Tomcat v8.0.
 
 ####Script pour création des tables
-
-1. Copier le chemin d'accès au script SQL de création des tables
-2. Ouvrir une fenêtre de ligne de commande SQL*Plus, se connecter en entrant la ligne suivante
+1. Depuis la ligne de commande SQL (connectés au compte de système), créez un nouveau utilisateur "ben", mot de passe "ben"
 ```sql
-connect system/system
+create user ben identified by ben;
+grant connect, resource to ben;
 ```
-
+Connectez vous à l'utilisateur ben
+```sql
+connect ben/ben
+```
 Vous êtes à présent connecté.
 
-Taper le chemin d'acces au au script en enlevant l'extension .sql, comme dans l'exemple suivant, pour le script *scrapbookSQL.sql*
+Taper le chemin d'acces au au script en enlevant l'extension .sql, comme dans l'exemple suivant, pour le script *script.sql*
 ```sql
-@C:\Users\Adminl\Desktop\scrapbookSQL
+@"/path/"script
 ```
+où "/path" est le chemin de l'emplacement du fichier sur le disque.
 Les tables sont à présent créées et prêtes à être utilisées par les employés.
 
 ###Déploiement de l'application
 
-1. Démarrer le serveur d'application Tomcat
+1. Démarrer le serveur d'application Tomcat en cliquant sur le fichier "bin\startup.bat"
 2. Glisser le livrable (fichier avec extension *.war) dans répertoire Webapps du dossier d'installation de Tomcat
 3. Une fois l'application déployée, un dossier au nom du fichier war est visible dans le répertoire Webapps.
-4. Démarrer le navigateur, rentrer l'adresse suivante <http://localhost:8080/proxibanqueV2/>
+4. Démarrer le navigateur, rentrer l'adresse suivante <http://localhost:8080/proxibanque/>
 5. Vous êtes à présent sur la page d'accueil de l'application.
 
 ###Fonctionnalités de l'application
