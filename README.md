@@ -57,7 +57,7 @@ Les tables sont à présent créées et prêtes à être utilisées par les empl
 ####Créer conseiller
 1. Sur l'écran d'accueil,cliquer sur le bouton *Créer conseiller*
 2. Remplir le formulaire
-3. Cocher la case *J'accepte les CGU* avant de valider (*Submit*)
+3. Valider
 	
 ####Créer client
 
