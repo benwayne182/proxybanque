@@ -1,5 +1,9 @@
 package fr.gtm.proxibanque.metier;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Sous-classe de la classe abstraite personne {@link fr.gtm.proxibanque.metier.Personne},
  * dont hérite les propriétés nom et prénom et ajoute un entier du numéro d'idéntification du conseiller,
@@ -10,6 +14,8 @@ package fr.gtm.proxibanque.metier;
  */
 public class Conseiller extends Personne{
 	//proprietes
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idConseiller;
 	private String identifiant;
 	private String pwd;
@@ -25,7 +31,7 @@ public class Conseiller extends Personne{
 	}
 
 	/**
-	 * Définit l'idéntifiant
+	 * Définit l'identifiant
 	 * @param identifiant
 	 */
 	public void setIdentifiant(String identifiant) {
