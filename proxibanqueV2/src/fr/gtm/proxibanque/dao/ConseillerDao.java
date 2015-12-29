@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 import fr.gtm.proxibanque.metier.CompteCourant;
 import fr.gtm.proxibanque.metier.CompteEpargne;
@@ -41,7 +45,7 @@ public class ConseillerDao implements IConseillerDao{
 	 * @param pwd
 	 */
 	public void creerConseiller(String nom,	String prenom,	String identifiant,	String pwd){
-		//informations acces bdd
+		/*//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
 		String login="ben";
 		String passwd="ben";
@@ -77,8 +81,26 @@ public class ConseillerDao implements IConseillerDao{
 
 			}
 
-		}
+		}*/
+		// 1 : Ouverture unité de travail JPA
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("demojpa-pu");
+		EntityManager em = emf.createEntityManager();
+		
+		// 2 : Ouverture transaction 
+		EntityTransaction tx =  em.getTransaction();
+		tx.begin();
+		// 3 : Instanciation Objet métier
+		Conseiller conseiller = new Conseiller(nom, prenom, identifiant, pwd);
+		// 4 : Persistance Objet/Relationnel : création d'un enregistrement en base
+		em.persist(conseiller);
+		// 5 : Fermeture transaction 
+		tx.commit();
 
+		// 6 : Fermeture unité de travail JPA 
+		em.close();
+		emf.close();
+		
+		
 	}
 
 
