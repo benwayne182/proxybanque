@@ -141,7 +141,7 @@ public class ConseillerManagedBean implements Serializable{
 
 	public String login()
 	{
-		if(getId().equalsIgnoreCase(scons.lireConseiller(id, pwd).getIdentifiant()) && getPwd().equals(scons.lireConseiller(id, pwd).getPwd()))
+		if(getId().equalsIgnoreCase(scons.lireConseiller(id, pwd).getLogin()) && getPwd().equals(scons.lireConseiller(id, pwd).getPwd()))
 		{
 			setListeclient(sclient.lireClients(scons.lireConseiller(id, pwd).getIdConseiller()));
 			return "resultId";

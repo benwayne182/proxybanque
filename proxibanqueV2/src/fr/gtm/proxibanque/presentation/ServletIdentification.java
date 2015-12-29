@@ -68,7 +68,7 @@ public class ServletIdentification extends HttpServlet {
 		maSession.setAttribute("consdao", cons);
 		RequestDispatcher dispatcher;
 
-		if((login.equalsIgnoreCase(cons.getIdentifiant()))&&(pwd.equalsIgnoreCase(cons.getPwd()))){
+		if((login.equalsIgnoreCase(cons.getLogin()))&&(pwd.equalsIgnoreCase(cons.getPwd()))){
 			
 			ArrayList<Client> listeclient = sclient.lireClients(cons.getIdConseiller());
 			maSession.setAttribute("listeclient", listeclient);

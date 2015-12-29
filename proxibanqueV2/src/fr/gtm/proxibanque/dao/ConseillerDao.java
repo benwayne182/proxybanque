@@ -44,8 +44,8 @@ public class ConseillerDao implements IConseillerDao{
 	 * @param identifiant
 	 * @param pwd
 	 */
-	public void creerConseiller(String nom,	String prenom,	String identifiant,	String pwd){
-		/*//informations acces bdd
+	public void creerConseiller(String nom,	String prenom,	String identifiant,	String password){
+		//informations acces bdd
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
 		String login="ben";
 		String passwd="ben";
@@ -60,7 +60,7 @@ public class ConseillerDao implements IConseillerDao{
 			//Etape 3: Creer requete
 			st=cn.createStatement();
 
-			String sql= "INSERT INTO conseiller (ID, NOM, PRENOM, LOGIN, PASSWORD) VALUES (BEN.seqCons.nextval,'"+nom+"','"+prenom+"','"+identifiant+"','"+pwd+"')";
+			String sql= "INSERT INTO conseiller (ID, NOM, PRENOM, LOGIN, PASSWORD) VALUES (BEN.seqCons.nextval,'"+nom+"','"+prenom+"','"+identifiant+"','"+password+"')";
 			//Etape 4: Executer requete
 			st.executeUpdate(sql);
 			System.out.println("Conseiller ajouté");
@@ -81,16 +81,16 @@ public class ConseillerDao implements IConseillerDao{
 
 			}
 
-		}*/
-		// 1 : Ouverture unité de travail JPA
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("demojpa-pu");
+		}
+		/*// 1 : Ouverture unité de travail JPA
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-pu");
 		EntityManager em = emf.createEntityManager();
 		
 		// 2 : Ouverture transaction 
 		EntityTransaction tx =  em.getTransaction();
 		tx.begin();
 		// 3 : Instanciation Objet métier
-		Conseiller conseiller = new Conseiller(nom, prenom, identifiant, pwd);
+		Conseiller conseiller = new Conseiller(nom, prenom, identifiant, password);
 		// 4 : Persistance Objet/Relationnel : création d'un enregistrement en base
 		em.persist(conseiller);
 		// 5 : Fermeture transaction 
@@ -98,7 +98,7 @@ public class ConseillerDao implements IConseillerDao{
 
 		// 6 : Fermeture unité de travail JPA 
 		em.close();
-		emf.close();
+		emf.close();*/
 		
 		
 	}
@@ -137,7 +137,7 @@ public class ConseillerDao implements IConseillerDao{
 				cons.setIdConseiller(rs.getInt("id"));
 				cons.setNom(rs.getString("nom"));
 				cons.setPrenom(rs.getString("prenom"));
-				cons.setIdentifiant(rs.getString("login"));
+				cons.setLogin(rs.getString("login"));
 				cons.setPwd(rs.getString("password"));
 
 			}

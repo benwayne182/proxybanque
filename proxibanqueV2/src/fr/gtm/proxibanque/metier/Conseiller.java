@@ -1,5 +1,6 @@
 package fr.gtm.proxibanque.metier;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,13 +13,14 @@ import javax.persistence.Id;
  * @author Adminl
  *
  */
+@Entity
 public class Conseiller extends Personne{
 	//proprietes
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idConseiller;
-	private String identifiant;
-	private String pwd;
+	private String login;
+	private String password;
 	
 
 	//getters setters
@@ -26,16 +28,16 @@ public class Conseiller extends Personne{
  * Prends le username (identifiant)
  * @return string identifiant
  */
-	public String getIdentifiant() {
-		return identifiant;
+	public String getLogin() {
+		return login;
 	}
 
 	/**
 	 * Définit l'identifiant
 	 * @param identifiant
 	 */
-	public void setIdentifiant(String identifiant) {
-		this.identifiant = identifiant;
+	public void setLogin(String identifiant) {
+		this.login = identifiant;
 	}
 
 	/**
@@ -43,7 +45,7 @@ public class Conseiller extends Personne{
 	 * @return string pwd
 	 */
 	public String getPwd() {
-		return pwd;
+		return password;
 	}
 
 	/**
@@ -51,7 +53,7 @@ public class Conseiller extends Personne{
 	 * @param pwd
 	 */
 	public void setPwd(String pwd) {
-		this.pwd = pwd;
+		this.password = pwd;
 	}
 	
 /**
@@ -80,8 +82,8 @@ public class Conseiller extends Personne{
 	 */
 	public Conseiller(String nom, String prenom, String identifiant, String password) {
 		super(nom, prenom);
-		this.identifiant=identifiant;
-		this.pwd=password;
+		this.login=identifiant;
+		this.password=password;
 	}
 	
 	//constructeur(vide)

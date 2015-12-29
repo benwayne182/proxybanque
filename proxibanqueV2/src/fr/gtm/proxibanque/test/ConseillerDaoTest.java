@@ -96,5 +96,9 @@ public class ConseillerDaoTest{
 
 
 	}
+	
+	@Test public void creerConsTestJpa() {
+		consdao.creerConseiller("test", "test", "test", "test");
+	}
 
 }
