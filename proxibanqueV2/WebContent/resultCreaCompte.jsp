@@ -40,7 +40,7 @@
 	<ul>
 		<li>Retour à la page conseiller <br>
 			<form action="redirect" method="post">
-				<input type="hidden" name="id" value=<%=l.getIdentifiant()%>>
+				<input type="hidden" name="id" value=<%=l.getLogin()%>>
 				<input type="hidden" name="password" value=<%=l.getPwd()%>>
 				<br> <input type="submit" value="Espace conseiller"
 					class="btn btn-info">
